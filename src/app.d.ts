@@ -1,17 +1,21 @@
-// See https://kit.svelte.dev/docs/types#app
-// for information about these interfaces
+// src/app.d.ts
+import { SupabaseClient, Session } from '@supabase/supabase-js';
+import { Database } from './DatabaseDefinitions';
+
 declare global {
 	namespace App {
-        interface Platform {
-          env: {
-            COUNTER: DurableObjectNamespace;
-          };
-          context: {
-            waitUntil(promise: Promise<any>): void;
-          };
-          caches: CacheStorage & { default: Cache }
-        }
-    }
+		interface Locals {
+			supabase: SupabaseClient<Database>;
+			getSession(): Promise<Session | null>;
+		}
+		interface PageData {
+			session: Session | null;
+		}
+	}
 }
 
-export {};
+declare class Product {
+	id: string; // Stripe ID
+	name: string; // "Coffee"
+	price: number; // 5
+}
