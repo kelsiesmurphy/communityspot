@@ -25,7 +25,7 @@
 			const { url } = await postData({
 				url: '/api/create-portal-link'
 			});
-			goto(url);
+			window.location = url;
 		} catch (error) {
 			if (error) return alert((error as Error).message);
 		} finally {
