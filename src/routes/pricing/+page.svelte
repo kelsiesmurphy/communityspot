@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Subscription from '$lib/components/Subscription.svelte';
+	import Subscription from '$lib/components/Pricing.svelte';
 
-	import type { PageData } from './$types';
+	import type { PageData } from '../pricing/$types';
 
 	export let data: PageData;
 	let { session, subscription, products } = data;

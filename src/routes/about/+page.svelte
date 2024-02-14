@@ -1,2 +1,2 @@
 <h1 class="h1 font-thin">About</h1>
-<p>A Svelte, Supabase, Stripe, SkeletonUI starter.</p>
+<p>A Svelte, Supabase, Stripe, Cloudflare Pages starter.</p>
