@@ -62,11 +62,6 @@
 	</div>
 
 	<button class="btn variant-filled" on:click={handleSignOut}>Sign out</button>
-
-	<details>
-		<summary>More data in: session.user</summary>
-		<pre class="pre">{JSON.stringify(session?.user, null, 2)}</pre>
-	</details>
 {:else}
-	<div>Return</div>
+	<div>No User Found</div>
 {/if}

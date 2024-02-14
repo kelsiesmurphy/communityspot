@@ -1,5 +1,4 @@
 <script lang="ts">
-	import { goto } from '$app/navigation';
 	import { postData } from '$lib/utils/helpers';
 
 	export let data;
@@ -70,10 +69,5 @@
 
 		<a href="/profile/settings" class="btn variant-filled-primary">Settings</a>
 		<button class="btn variant-filled" on:click={handleSignOut}>Sign out</button>
-
-		<details>
-			<summary>More data in : session.user</summary>
-			<pre class="pre">{JSON.stringify(session.user, null, 2)}</pre>
-		</details>
 	{/if}
 </section>
