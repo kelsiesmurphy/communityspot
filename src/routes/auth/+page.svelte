@@ -28,7 +28,7 @@
 				password
 			});
 			if (error) throw error;
-			alert('Login successfully, visit your home page❤️!');
+			alert('Login successfully, visit your home page!');
 			goto('/profile');
 		} catch (error) {
 			if (error instanceof Error) {
@@ -50,7 +50,7 @@
 				}
 			});
 			if (error) throw error;
-			alert('Your email must be verified, go check your email❤️!');
+			alert('Your email must be verified, go check your email!');
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);

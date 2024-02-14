@@ -2,7 +2,6 @@
 	import { goto } from '$app/navigation';
 	import { getStripe } from '$lib/stripe/stripe-client';
 	import { postData } from '$lib/utils/helpers';
-	import { ListBox, ListBoxItem } from '@skeletonlabs/skeleton';
 
 	export let products: any, subscription: any, session: any;
 
@@ -44,15 +43,15 @@
 </script>
 
 <div class="max-w-lg">
-	<ListBox class="bg-tertiary-900 p-3">
-		<ListBoxItem bind:group={billingInterval} name="medium" value="month">Monthly</ListBoxItem>
-		<ListBoxItem bind:group={billingInterval} name="medium" value="year">Yearly</ListBoxItem>
-	</ListBox>
+	<div class="bg-tertiary-900 p-3">
+		<input type="radio" bind:group={billingInterval} name="medium" value="month" />
+		<input type="radio" bind:group={billingInterval} name="medium" value="year" />
+	</div>
 </div>
 
 <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
 	{#each products as product}
-		<section class="card w-full block card-hover variant-glass-primary">
+		<section class="w-full block">
 			<div class="p-4 space-y-4">
 				<h1 class="h1 font-thin">{product.name}</h1>
 				<div class="grid grid-cols-1 gap-8">

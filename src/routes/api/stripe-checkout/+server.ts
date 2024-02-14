@@ -37,8 +37,8 @@ export async function POST({ request, locals: { getSession } }: any) {
 						trial_from_plan: true,
 						metadata
 					},
-					success_url: `${getURL()}/profile`,
-					cancel_url: `${getURL()}/`
+					success_url: `${getURL()}profile`,
+					cancel_url: `${getURL()}`
 				});
 			} else if (price.type === 'one_time') {
 				session = await stripe.checkout.sessions.create({
@@ -56,8 +56,8 @@ export async function POST({ request, locals: { getSession } }: any) {
 					],
 					mode: 'payment',
 					allow_promotion_codes: true,
-					success_url: `${getURL()}/profile`,
-					cancel_url: `${getURL()}/`
+					success_url: `${getURL()}profile`,
+					cancel_url: `${getURL()}`
 				});
 			}
 

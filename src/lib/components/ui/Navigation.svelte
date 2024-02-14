@@ -1,19 +1,12 @@
 <script lang="ts">
 	export let session: any;
-	import { getDrawerStore } from '@skeletonlabs/skeleton';
-
-	const drawerStore = getDrawerStore();
-
-	function drawerClose(): void {
-		drawerStore.close();
-	}
 </script>
 
-<nav class="list-nav p-4">
-	<ul>
-		<li><a on:click={drawerClose} href="/">Home</a></li>
-		<li><a on:click={drawerClose} href={session ? '/profile' : '/auth'}>Profile</a></li>
-		<li><a on:click={drawerClose} href="/subscription">Subscription</a></li>
-		<li><a on:click={drawerClose} href="/about">About</a></li>
+<nav>
+	<ul class="flex gap-4">
+		<li><a href="/">Home</a></li>
+		<li><a href={session ? '/profile' : '/auth'}>Profile</a></li>
+		<li><a href="/subscription">Subscription</a></li>
+		<li><a href="/about">About</a></li>
 	</ul>
 </nav>
