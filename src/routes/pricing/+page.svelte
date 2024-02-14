@@ -1,5 +1,6 @@
 <script lang="ts">
-	import Subscription from '$lib/components/Pricing.svelte';
+	import Pricing from '$lib/components/Pricing.svelte';
+	import PricingTabs from '$lib/components/PricingTabs.svelte';
 
 	import type { PageData } from '../pricing/$types';
 
@@ -10,4 +11,4 @@
 
 <h1 class="h1 font-thin">Subscription Page</h1>
 
-<Subscription {products} {subscription} {session} />
+<PricingTabs {products} {subscription} {session} />
