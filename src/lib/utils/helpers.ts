@@ -3,10 +3,7 @@ type Price = Database['public']['Tables']['prices']['Row'];
 import { PUBLIC_SITE_URL } from '$env/static/public';
 
 export const getURL = () => {
-	let url =
-		PUBLIC_SITE_URL ??
-		process?.env?.PUBLIC_VERCEL_URL ??
-		'http://localhost:5173/';
+	let url = PUBLIC_SITE_URL ?? process?.env?.PUBLIC_VERCEL_URL ?? 'http://localhost:5173/';
 	// Make sure to include `https://` when not localhost.
 	url = url.includes('http') ? url : `https://${url}`;
 	// Make sure to including trailing `/`.
