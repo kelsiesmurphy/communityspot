@@ -6,7 +6,8 @@
 	// Authentication on Client Side
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import Navigation from '$lib/components/ui/Navigation.svelte';
+	import Navigation from '$lib/components/Navigation.svelte';
+	import { ModeWatcher } from 'mode-watcher';
 
 	export let data;
 
@@ -26,6 +27,7 @@
 	});
 </script>
 
+<ModeWatcher />
 <Navigation {session} />
 <div class="container mx-auto p-8 space-y-8">
 	<slot />

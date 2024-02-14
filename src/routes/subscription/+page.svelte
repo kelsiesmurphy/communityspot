@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Subscription from '$lib/components/ui/Subscription.svelte';
+	import Subscription from '$lib/components/Subscription.svelte';
 
 	import type { PageData } from './$types';
 
