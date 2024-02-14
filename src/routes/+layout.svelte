@@ -17,7 +17,6 @@
 
 	//Breadcrumbs
 	import { page } from '$app/stores';
-	import Breadcrumbs from '$lib/components/ui/Breadcrumbs.svelte';
 
 	// Authentication on Client Side
 	import { invalidate } from '$app/navigation';
@@ -88,8 +87,6 @@
 		<Navigation {session} />
 	</svelte:fragment>
 	<div class="container mx-auto p-8 space-y-8">
-		<Breadcrumbs path={$page.url.pathname} />
-		<hr />
 		<slot />
 	</div>
 </AppShell>
