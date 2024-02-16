@@ -12,11 +12,10 @@
 		{ interval: 'month', title: 'Monthly' },
 		{ interval: 'year', title: 'Yearly' }
 	];
-	let selectedBillingInterval = billingIntervals[0];
 
-	function showPriceString(product: any, selectedBillingInterval: any) {
+	function showPriceString(product: any, billingInterval: any) {
 		const price = product?.prices?.find(
-			(price: any) => price.interval === selectedBillingInterval.interval
+			(price: any) => price.interval === billingInterval.interval
 		);
 		if (!price) return null;
 
@@ -28,9 +27,9 @@
 		return priceString;
 	}
 
-	const handleCheckout = async (product: any) => {
+	const handleCheckout = async (product: any, billingInterval: any) => {
 		const price = product?.prices?.find(
-			(price: any) => price.interval === selectedBillingInterval.interval
+			(price: any) => price.interval === billingInterval.interval
 		);
 		if (!price) return null;
 
@@ -53,7 +52,7 @@
 	};
 </script>
 
-<Tabs.Root value="month" class="w-[400px]">
+<Tabs.Root value="month">
 	<Tabs.List class="grid w-full grid-cols-2">
 		{#each billingIntervals as billingInterval}
 			<Tabs.Trigger value={billingInterval.interval}>{billingInterval.title}</Tabs.Trigger>
@@ -79,10 +78,11 @@
 					</Card.Content>
 					<Card.Footer>
 						{#if subscription}
-							<Button class="btn variant-filled-primary" href="/profile">Manage subscription</Button>
+							<Button class="btn variant-filled-primary" href="/profile">Manage subscription</Button
+							>
 						{:else}
 							<Button
-								on:click={() => handleCheckout(product)}
+								on:click={() => handleCheckout(product, billingInterval)}
 								class="btn variant-filled-primary"
 								disabled={session ? false : true}
 							>
