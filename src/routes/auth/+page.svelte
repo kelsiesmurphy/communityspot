@@ -1,9 +1,14 @@
 <script lang="ts">
 	// import { goto } from '$app/navigation';
 	// import { Button } from '$lib/components/ui/button';
+
+	import * as Form from '$lib/components/ui/form';
 	import type { PageData } from './$types';
-	import AuthForm from '$lib/components/AuthForm.svelte';
+	import { formSchema, type FormSchema } from '../../routes/auth/schema';
 	export let data: PageData;
+
+	// export let form: SuperValidated<FormSchema>;
+	import type { SuperValidated } from 'sveltekit-superforms';
 
 	// export let data;
 	// let { supabase, session } = data;
@@ -88,4 +93,14 @@
 	>
 </div> -->
 
-<AuthForm form={data.form} />
+<Form.Root method="POST" form={data.form} schema={formSchema} let:config debug={true}>
+	<Form.Field {config} name="username">
+		<Form.Item>
+			<Form.Label>Username</Form.Label>
+			<Form.Input />
+			<Form.Description>This is your public display name.</Form.Description>
+			<Form.Validation />
+		</Form.Item>
+	</Form.Field>
+	<Form.Button>Submit</Form.Button>
+</Form.Root>
