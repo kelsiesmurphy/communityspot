@@ -34,7 +34,7 @@
 		if (!price) return null;
 
 		if (!session) {
-			goto('/auth');
+			goto('/signin');
 		}
 		if (subscription) {
 			goto('/profile');

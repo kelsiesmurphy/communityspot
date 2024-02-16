@@ -7,4 +7,4 @@
 
 <h2 class="h1 font-thin">Login / Signup</h2>
 
-<a href="/auth" class="logo-item">Auth</a>
+<a href="/signin" class="logo-item">Sign In</a>

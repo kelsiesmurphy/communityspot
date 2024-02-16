@@ -35,27 +35,6 @@
 			loading = false;
 		}
 	};
-
-	const handleSignUp = async () => {
-		try {
-			loading = true;
-			const { error } = await supabase.auth.signUp({
-				email,
-				password,
-				options: {
-					emailRedirectTo: `${location.origin}/auth/callback`
-				}
-			});
-			if (error) throw error;
-			alert('Your email must be verified, go check your email!');
-		} catch (error) {
-			if (error instanceof Error) {
-				alert(error.message);
-			}
-		} finally {
-			loading = false;
-		}
-	};
 </script>
 
 <form>
@@ -76,12 +55,5 @@
 			handleSignIn();
 		}}
 		disabled={loading}>Sign in</Button
-	>
-	<Button
-		on:click={(event) => {
-			event.preventDefault();
-			handleSignUp();
-		}}
-		disabled={loading}>Sign Up</Button
 	>
 </div>

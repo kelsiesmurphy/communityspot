@@ -40,7 +40,7 @@
 <section>
 	{#if !session}
 		<div>Not logged in</div>
-		<a href="/auth" class="border-l-pink-200 btn variant-filled">Return to login</a>
+		<a href="/signin" class="border-l-pink-200 btn variant-filled">Return to login</a>
 	{:else}
 		<div class="card mb-4">
 			<h1 class="card-header h3">Current plan:</h1>
