@@ -1,66 +1,71 @@
-<script>
-	import { goto } from '$app/navigation';
+<script lang="ts">
+	// import { goto } from '$app/navigation';
+	// import { Button } from '$lib/components/ui/button';
+	import type { PageData } from './$types';
+	import AuthForm from '$lib/components/AuthForm.svelte';
+	export let data: PageData;
 
-	export let data;
-	let { supabase, session } = data;
-	$: ({ supabase, session } = data);
+	// export let data;
+	// let { supabase, session } = data;
+	// $: ({ supabase, session } = data);
 
-	if (session) {
-		goto('/profile');
-	}
-	/**
-	 * @type {string}
-	 */
-	let email;
+	// if (session) {
+	// 	goto('/profile');
+	// }
+	// /**
+	//  * @type {string}
+	//  */
+	// let email;
 
-	/**
-	 * @type {string}
-	 */
-	let password;
+	// /**
+	//  * @type {string}
+	//  */
+	// let password;
 
-	let loading = false;
+	// let loading = false;
 
-	const handleSignIn = async () => {
-		try {
-			loading = true;
-			const { error } = await supabase.auth.signInWithPassword({
-				email,
-				password
-			});
-			if (error) throw error;
-			alert('Login successfully, visit your home page!');
-			goto('/profile');
-		} catch (error) {
-			if (error instanceof Error) {
-				alert(error.message);
-			}
-		} finally {
-			loading = false;
-		}
-	};
+	// const handleSignIn = async () => {
+	// 	try {
+	// 		loading = true;
+	// 		const { error } = await supabase.auth.signInWithPassword({
+	// 			email,
+	// 			password
+	// 		});
+	// 		if (error) throw error;
+	// 		alert('Login successfully, visit your home page!');
+	// 		goto('/profile');
+	// 	} catch (error) {
+	// 		if (error instanceof Error) {
+	// 			alert(error.message);
+	// 		}
+	// 	} finally {
+	// 		loading = false;
+	// 	}
+	// };
 
-	const handleSignUp = async () => {
-		try {
-			loading = true;
-			const { error } = await supabase.auth.signUp({
-				email,
-				password,
-				options: {
-					emailRedirectTo: `${location.origin}/auth/callback`
-				}
-			});
-			if (error) throw error;
-			alert('Your email must be verified, go check your email!');
-		} catch (error) {
-			if (error instanceof Error) {
-				alert(error.message);
-			}
-		} finally {
-			loading = false;
-		}
-	};
+	// const handleSignUp = async () => {
+	// 	try {
+	// 		loading = true;
+	// 		const { error } = await supabase.auth.signUp({
+	// 			email,
+	// 			password,
+	// 			options: {
+	// 				emailRedirectTo: `${location.origin}/auth/callback`
+	// 			}
+	// 		});
+	// 		if (error) throw error;
+	// 		alert('Your email must be verified, go check your email!');
+	// 	} catch (error) {
+	// 		if (error instanceof Error) {
+	// 			alert(error.message);
+	// 		}
+	// 	} finally {
+	// 		loading = false;
+	// 	}
+	// };
 </script>
 
+<!-- 
 <form>
 	<label>
 		<span>Email</span>
@@ -74,5 +79,13 @@
 
 <div class="btn-group variant-filled">
 	<button on:click|preventDefault={handleSignIn} disabled={loading}>Sign in</button>
-	<button on:click|preventDefault={handleSignUp} disabled={loading}>Sign Up</button>
-</div>
+	<Button
+		on:click={(event) => {
+			event.preventDefault();
+			handleSignUp();
+		}}
+		disabled={loading}>Sign Up</Button
+	>
+</div> -->
+
+<AuthForm form={data.form} />
