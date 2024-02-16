@@ -8,17 +8,18 @@ export const load = async ({ parent }: any) => {
 	}
 	const { data: userdata } = await supabase
 		.from('users')
-		.select(`id, username, full_name, billing_address`)
+		.select(`id, full_name, billing_address`)
 		.eq('id', session.user.id)
 		.single();
 
-	let { data: stripeId } = await supabase
+	const { data: stripeId } = await supabase
 		.from('customers')
 		.select('stripe_customer_id')
 		.eq('id', session.user.id)
 		.single();
 
 	return {
-		userdata
+		userdata,
+		stripeId
 	};
 };

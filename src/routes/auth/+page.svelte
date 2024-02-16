@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { Button } from '$lib/components/ui/button';
+	import type { PageData } from './$types';
 
-	export let data;
+	export let data: PageData;
 	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
 
