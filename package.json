@@ -52,14 +52,10 @@
 		"@supabase/supabase-js": "^2.39.6",
 		"bits-ui": "^0.18.1",
 		"clsx": "^2.1.0",
-		"formsnap": "^0.4.4",
 		"lucide-svelte": "^0.330.0",
 		"mode-watcher": "^0.2.1",
-		"radix-icons-svelte": "^1.2.1",
 		"stripe": "^14.16.0",
-		"sveltekit-superforms": "^2.2.0",
 		"tailwind-merge": "^2.2.1",
-		"tailwind-variants": "^0.2.0",
-		"zod": "^3.22.4"
+		"tailwind-variants": "^0.2.0"
 	}
 }
