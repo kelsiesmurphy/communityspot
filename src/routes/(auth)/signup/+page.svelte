@@ -39,6 +39,7 @@
 	};
 </script>
 
+<h1 class="text-2xl">Sign Up</h1>
 <form>
 	<div>
 		<Label for="email">Email</Label>
@@ -59,3 +60,4 @@
 		disabled={loading}>Sign Up</Button
 	>
 </div>
+<Button variant="ghost" href="/signin">Already have an account? Sign In</Button>
