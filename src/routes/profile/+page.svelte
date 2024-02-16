@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { postData } from '$lib/utils/helpers';
+	import { Button } from '$lib/components/ui/button';
 
 	export let data;
 	let { supabase, session, subscription } = data;
@@ -55,9 +56,9 @@
 					<a href="/">Choose your plan</a>
 				{/if}
 			</div>
-			<button class="btn m-4 variant-filled-tertiary" on:click={redirectToCustomerPortal}>
+			<Button class="btn m-4 variant-filled-tertiary" on:click={redirectToCustomerPortal}>
 				{loading == false ? 'Open customer portal' : 'loading customer portal...'}
-			</button>
+			</Button>
 		</div>
 
 		<div class="card mb-4">
@@ -67,7 +68,7 @@
 			</p>
 		</div>
 
-		<a href="/profile/settings" class="btn variant-filled-primary">Settings</a>
-		<button class="btn variant-filled" on:click={handleSignOut}>Sign out</button>
+		<Button href="/profile/settings" class="btn variant-filled-primary">Settings</Button>
+		<Button class="btn variant-filled" on:click={handleSignOut}>Sign out</Button>
 	{/if}
 </section>

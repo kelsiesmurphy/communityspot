@@ -1,5 +1,6 @@
-<script>
+<script lang="ts">
 	import { goto } from '$app/navigation';
+	import { Button } from '$lib/components/ui/button';
 
 	export let data;
 	let { supabase, session } = data;
@@ -8,16 +9,9 @@
 	if (session) {
 		goto('/profile');
 	}
-	/**
-	 * @type {string}
-	 */
-	let email;
 
-	/**
-	 * @type {string}
-	 */
-	let password;
-
+	let email: string;
+	let password: string;
 	let loading = false;
 
 	const handleSignIn = async () => {
@@ -64,15 +58,27 @@
 <form>
 	<label>
 		<span>Email</span>
-		<input class="input" name="email" bind:value={email} />
+		<input name="email" bind:value={email} />
 	</label>
 	<label>
 		<span>Password</span>
-		<input class="input" type="password" name="password" bind:value={password} />
+		<input type="password" name="password" bind:value={password} />
 	</label>
 </form>
 
-<div class="btn-group variant-filled">
-	<button on:click|preventDefault={handleSignIn} disabled={loading}>Sign in</button>
-	<button on:click|preventDefault={handleSignUp} disabled={loading}>Sign Up</button>
+<div>
+	<Button
+		on:click={(event) => {
+			event.preventDefault();
+			handleSignIn();
+		}}
+		disabled={loading}>Sign in</Button
+	>
+	<Button
+		on:click={(event) => {
+			event.preventDefault();
+			handleSignUp();
+		}}
+		disabled={loading}>Sign Up</Button
+	>
 </div>

@@ -72,14 +72,14 @@
 					<Card.Content class="flex flex-col space-y-2">
 						<span class="font-extrabold white text-3xl mb-2">
 							{showPriceString(product, billingInterval)}
-							<span class="text-base font-medium text-zinc-100 capitalize">
-								/ {billingInterval}</span
+							<span class="text-base font-medium text-zinc-600 capitalize">
+								/ {billingInterval.interval}</span
 							>
 						</span>
 					</Card.Content>
 					<Card.Footer>
 						{#if subscription}
-							<a class="btn variant-filled-primary" href="/profile">Manage subscription</a>
+							<Button class="btn variant-filled-primary" href="/profile">Manage subscription</Button>
 						{:else}
 							<Button
 								on:click={() => handleCheckout(product)}
