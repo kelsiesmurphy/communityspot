@@ -3,15 +3,18 @@
 	import { Button } from '$lib/components/ui/button';
 	import { Input } from '$lib/components/ui/input';
 	import { Label } from '$lib/components/ui/label';
+	import { onMount } from 'svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
 	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
 
-	if (session) {
-		goto('/profile');
-	}
+	onMount(() => {
+		if (session) {
+			goto('/profile'); // Client-side navigation
+		}
+	});
 
 	let email: string;
 	let password: string;
