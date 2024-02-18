@@ -17,25 +17,6 @@
 	let password: string;
 	let loading = false;
 
-	const handleSignIn = async () => {
-		try {
-			loading = true;
-			const { error } = await supabase.auth.signInWithPassword({
-				email,
-				password
-			});
-			if (error) throw error;
-			alert('Login successfully, visit your home page!');
-			goto('/profile');
-		} catch (error) {
-			if (error instanceof Error) {
-				alert(error.message);
-			}
-		} finally {
-			loading = false;
-		}
-	};
-
 	const handleSignUp = async () => {
 		try {
 			loading = true;
@@ -43,7 +24,7 @@
 				email,
 				password,
 				options: {
-					emailRedirectTo: `${location.origin}/auth/callback`
+					emailRedirectTo: `${location.origin}/signup/callback`
 				}
 			});
 			if (error) throw error;
@@ -58,6 +39,7 @@
 	};
 </script>
 
+<h1 class="text-2xl">Sign Up</h1>
 <form>
 	<div>
 		<Label for="email">Email</Label>
@@ -73,15 +55,9 @@
 	<Button
 		on:click={(event) => {
 			event.preventDefault();
-			handleSignIn();
-		}}
-		disabled={loading}>Sign in</Button
-	>
-	<Button
-		on:click={(event) => {
-			event.preventDefault();
 			handleSignUp();
 		}}
 		disabled={loading}>Sign Up</Button
 	>
 </div>
+<Button variant="ghost" href="/signin">Already have an account? Sign In</Button>
