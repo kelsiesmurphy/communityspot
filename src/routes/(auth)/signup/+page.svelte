@@ -24,7 +24,7 @@
 				email,
 				password,
 				options: {
-					emailRedirectTo: `${location.origin}/signup/callback`
+					emailRedirectTo: `${location.origin}/callback`
 				}
 			});
 			if (error) throw error;

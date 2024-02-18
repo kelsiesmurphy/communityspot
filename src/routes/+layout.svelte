@@ -6,6 +6,7 @@
 	// Authentication on Client Side
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
+	
 	import Navigation from '$lib/components/Navigation.svelte';
 	import { ModeWatcher } from 'mode-watcher';
 
