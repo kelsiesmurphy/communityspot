@@ -1,37 +1,25 @@
-import { error, fail } from '@sveltejs/kit';
-import type { Actions } from './$types';
+import type { PageServerLoad, Actions } from './$types';
+import { fail } from '@sveltejs/kit';
+import { superValidate } from 'sveltekit-superforms';
+import { zod } from 'sveltekit-superforms/adapters';
+import { formSchema } from './schema';
+
+export const load: PageServerLoad = async () => {
+	return {
+		form: await superValidate(zod(formSchema))
+	};
+};
 
 export const actions: Actions = {
-	updateUser: async ({ request, locals: { supabase, getSession } }) => {
-		const session = await getSession();
-		if (!session) {
-			throw error(401, { message: 'Unauthorized' });
-		}
-
-		const formData = await request.formData();
-
-		const full_name = formData.get('full_name');
-		const username = formData.get('username');
-		const address = formData.get('address');
-
-		const { data, error: createPostError } = await supabase
-			.from('users')
-			.update({
-				full_name: full_name,
-				username: username,
-				billing_address: address
-			})
-			.eq('id', session.user.id)
-			.select();
-
-		if (createPostError) {
-			return fail(500, {
-				supabaseErrorMessage: createPostError.message
+	default: async (event) => {
+		const form = await superValidate(event, zod(formSchema));
+		if (!form.valid) {
+			return fail(400, {
+				form
 			});
 		}
 		return {
-			sucsess: true,
-			userdata: data
+			form
 		};
 	}
 };

@@ -22,14 +22,17 @@
 
 	let loading = false;
 
-	const handleSignUp = async (email: string, password: string) => {
+	const handleSignUp = async (email: string, password: string, full_name: string) => {
 		try {
 			loading = true;
 			const { error } = await supabase.auth.signUp({
 				email,
 				password,
 				options: {
-					emailRedirectTo: `${location.origin}/callback`
+					emailRedirectTo: `${location.origin}/callback`,
+					data: {
+						full_name
+					}
 				}
 			});
 			if (error) throw error;
@@ -47,7 +50,7 @@
 		validators: zodClient(formSchema),
 		onUpdated: ({ form }) => {
 			if (form.valid) {
-				handleSignUp(form.data.email, form.data.password);
+				handleSignUp(form.data.email, form.data.password, form.data.full_name);
 			} else {
 				toast.error('Please fix the errors in the form.');
 			}
@@ -59,6 +62,13 @@
 
 <h1 class="text-2xl">Sign Up</h1>
 <form method="POST" use:enhance>
+	<Form.Field {form} name="full_name">
+		<Form.Control let:attrs>
+			<Form.Label>First Name</Form.Label>
+			<Input type="text" {...attrs} bind:value={$formData.full_name} />
+		</Form.Control>
+		<Form.FieldErrors />
+	</Form.Field>
 	<Form.Field {form} name="email">
 		<Form.Control let:attrs>
 			<Form.Label>Email</Form.Label>
