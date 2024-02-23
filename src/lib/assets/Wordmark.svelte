@@ -1,7 +1,6 @@
-<script>
+<script lang="ts">
 	import { mode } from 'mode-watcher';
-
-	let colour = $mode === 'light' ? '#1C1917' : '#ffffff';
+	$: colour = $mode === 'dark' ? '#FFFFFF' : '#1C1917';
 </script>
 
 <svg width="223" height="32" viewBox="0 0 223 32" fill="none" xmlns="http://www.w3.org/2000/svg">

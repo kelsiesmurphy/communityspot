@@ -31,7 +31,7 @@
 
 <ModeWatcher />
 <Toaster theme={$mode} />
-<Navigation {session} />
+<Navigation {session} {supabase} />
 <div id="main-content" class="container mx-auto p-8 space-y-8">
 	<slot />
 </div>
