@@ -8,7 +8,8 @@
 	import { onMount } from 'svelte';
 	
 	import Navigation from '$lib/components/Navigation.svelte';
-	import { ModeWatcher } from 'mode-watcher';
+	import { ModeWatcher, mode } from 'mode-watcher';
+	import { Toaster } from "$lib/components/ui/sonner";
 
 	export let data;
 
@@ -29,6 +30,7 @@
 </script>
 
 <ModeWatcher />
+<Toaster theme={$mode} />
 <Navigation {session} />
 <div class="container mx-auto p-8 space-y-8">
 	<slot />
