@@ -1,16 +1,24 @@
 <script lang="ts">
 	import * as Form from '$lib/components/ui/form';
 	import { Input } from '$lib/components/ui/input';
-	import { formSchema, type FormSchema } from './schema';
-	import SuperDebug, { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
+	import { formSchema } from './schema';
+	import SuperDebug, { superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
+	import { Button } from '$lib/components/ui/button';
+	import { onMount } from 'svelte';
 
 	export let data: PageData;
 	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
+
+	onMount(() => {
+		if (session) {
+			goto('/profile');
+		}
+	});
 
 	let loading = false;
 
@@ -47,6 +55,7 @@
 	const { form: formData, enhance } = form;
 </script>
 
+<h1 class="text-2xl">Sign In</h1>
 <form method="POST" use:enhance>
 	<Form.Field {form} name="email">
 		<Form.Control let:attrs>
@@ -62,6 +71,7 @@
 		</Form.Control>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Button disabled={loading}>Submit</Form.Button>
+	<Form.Button disabled={loading}>Sign In</Form.Button>
 	<SuperDebug data={$formData} />
 </form>
+<Button variant="ghost" href="/signup">Don't have an account? Sign Up</Button>
