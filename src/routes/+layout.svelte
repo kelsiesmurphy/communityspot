@@ -6,10 +6,10 @@
 	// Authentication on Client Side
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
-	
+
 	import Navigation from '$lib/components/Navigation.svelte';
 	import { ModeWatcher, mode } from 'mode-watcher';
-	import { Toaster } from "$lib/components/ui/sonner";
+	import { Toaster } from '$lib/components/ui/sonner';
 
 	export let data;
 
@@ -32,6 +32,6 @@
 <ModeWatcher />
 <Toaster theme={$mode} />
 <Navigation {session} />
-<div class="container mx-auto p-8 space-y-8">
+<div id="main-content" class="container mx-auto p-8 space-y-8">
 	<slot />
 </div>
