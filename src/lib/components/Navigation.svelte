@@ -19,7 +19,7 @@
 	];
 </script>
 
-<nav class="p-4 md:px-12 flex items-center gap-4 justify-between">
+<nav class="p-4 container flex items-center gap-4 justify-between">
 	<Button
 		class="transition left-0 bg-primary text-white absolute p-3 m-3 -translate-y-16 focus:translate-y-0"
 		href="#main-content"

@@ -53,45 +53,55 @@
 </script>
 
 <Tabs.Root value="month">
-	<Tabs.List class="grid w-full grid-cols-2">
-		{#each billingIntervals as billingInterval}
-			<Tabs.Trigger value={billingInterval.interval}>{billingInterval.title}</Tabs.Trigger>
-		{/each}
-	</Tabs.List>
-	{#each billingIntervals as billingInterval}
-		<Tabs.Content value={billingInterval.interval}>
-			{#each products as product}
-				<Card.Root>
-					<Card.Header>
-						<Card.Title>{product.name}</Card.Title>
-						<Card.Description>
-							{product.description}
-						</Card.Description>
-					</Card.Header>
-					<Card.Content class="flex flex-col space-y-2">
-						<span class="font-extrabold white text-3xl mb-2">
-							{showPriceString(product, billingInterval)}
-							<span class="text-base font-medium text-zinc-600 capitalize">
-								/ {billingInterval.interval}</span
-							>
-						</span>
-					</Card.Content>
-					<Card.Footer>
-						{#if subscription}
-							<Button class="btn variant-filled-primary" href="/profile">Manage subscription</Button
-							>
-						{:else}
-							<Button
-								on:click={() => handleCheckout(product, billingInterval)}
-								class="btn variant-filled-primary"
-								disabled={session ? false : true}
-							>
-								Subscribe
-							</Button>
-						{/if}
-					</Card.Footer>
-				</Card.Root>
+	<div class="flex flex-col items-center">
+		<div class="w-full flex-1 max-w-sm">
+			<Tabs.List class="grid grid-cols-2">
+				{#each billingIntervals as billingInterval}
+					<Tabs.Trigger value={billingInterval.interval}>{billingInterval.title}</Tabs.Trigger>
+				{/each}
+			</Tabs.List>
+		</div>
+
+		<div class="w-full flex-1 max-w-3xl">
+			{#each billingIntervals as billingInterval}
+				<Tabs.Content value={billingInterval.interval}>
+					<div class="flex gap-4 flex-wrap">
+						{#each products as product}
+							<Card.Root class="flex-1">
+								<Card.Header>
+									<Card.Title>{product.name}</Card.Title>
+									<Card.Description>
+										{product.description}
+									</Card.Description>
+								</Card.Header>
+								<Card.Content class="flex flex-col space-y-2">
+									<span class="font-extrabold white text-3xl mb-2">
+										{showPriceString(product, billingInterval)}
+										<span class="text-base font-medium text-zinc-600 capitalize">
+											/ {billingInterval.interval}</span
+										>
+									</span>
+								</Card.Content>
+								<Card.Footer>
+									{#if subscription}
+										<Button class="btn variant-filled-primary" href="/profile"
+											>Manage subscription</Button
+										>
+									{:else}
+										<Button
+											on:click={() => handleCheckout(product, billingInterval)}
+											class="btn variant-filled-primary"
+											disabled={session ? false : true}
+										>
+											Subscribe
+										</Button>
+									{/if}
+								</Card.Footer>
+							</Card.Root>
+						{/each}
+					</div>
+				</Tabs.Content>
 			{/each}
-		</Tabs.Content>
-	{/each}
+		</div>
+	</div>
 </Tabs.Root>
