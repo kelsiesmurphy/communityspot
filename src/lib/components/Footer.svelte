@@ -39,8 +39,8 @@
 	];
 </script>
 
-<footer class="container space-y-6 py-12">
-	<div class="flex justify-between">
+<footer class="container space-y-6 p-4 py-12">
+	<div class="flex justify-between flex-wrap">
 		<div class="space-y-6 text-zinc-600">
 			<Button variant="link" href="/"><Wordmark /></Button>
 			<ul class="flex">

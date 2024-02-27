@@ -72,6 +72,8 @@
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Button disabled={loading}>Sign In</Form.Button>
-	<SuperDebug data={$formData} />
+	<!-- <SuperDebug data={$formData} /> -->
 </form>
-<Button variant="ghost" href="/signup">Don't have an account? Sign Up</Button>
+<div class="flex-1 flex justify-center">
+	<Button variant="ghost" href="/signup">Don't have an account? Sign Up</Button>
+</div>

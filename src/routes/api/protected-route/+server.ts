@@ -15,7 +15,7 @@ export const GET = async ({ locals: { supabase, getSession } }) => {
 		throw fail(401, { message: 'Unauthorized' });
 	}
 
-	let { data: users } = await supabase.from('users').select('id');
+	const { data: users } = await supabase.from('users').select('id');
 
 	return json({ users });
 };
