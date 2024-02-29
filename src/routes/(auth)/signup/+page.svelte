@@ -9,6 +9,7 @@
 	import { goto } from '$app/navigation';
 	import { Button } from '$lib/components/ui/button';
 	import { onMount } from 'svelte';
+	import Layout from '../+layout.svelte';
 
 	export let data: PageData;
 	let { supabase, session } = data;
@@ -60,32 +61,34 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl">Sign Up</h1>
-<form method="POST" use:enhance>
-	<Form.Field {form} name="full_name">
-		<Form.Control let:attrs>
-			<Form.Label>First Name</Form.Label>
-			<Input type="text" {...attrs} bind:value={$formData.full_name} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Field {form} name="email">
-		<Form.Control let:attrs>
-			<Form.Label>Email</Form.Label>
-			<Input type="email" {...attrs} bind:value={$formData.email} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Field {form} name="password">
-		<Form.Control let:attrs>
-			<Form.Label>Password</Form.Label>
-			<Input type="password" {...attrs} bind:value={$formData.password} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Button disabled={loading}>Sign Up</Form.Button>
-	<!-- <SuperDebug data={$formData} /> -->
-</form>
-<div class="flex-1 flex justify-center">
-	<Button variant="ghost" href="/signin">Already have an account? Sign In</Button>
-</div>
+<Layout>
+	<h1 class="text-2xl">Sign Up</h1>
+	<form method="POST" use:enhance>
+		<Form.Field {form} name="full_name">
+			<Form.Control let:attrs>
+				<Form.Label>First Name</Form.Label>
+				<Input type="text" {...attrs} bind:value={$formData.full_name} />
+			</Form.Control>
+			<Form.FieldErrors />
+		</Form.Field>
+		<Form.Field {form} name="email">
+			<Form.Control let:attrs>
+				<Form.Label>Email</Form.Label>
+				<Input type="email" {...attrs} bind:value={$formData.email} />
+			</Form.Control>
+			<Form.FieldErrors />
+		</Form.Field>
+		<Form.Field {form} name="password">
+			<Form.Control let:attrs>
+				<Form.Label>Password</Form.Label>
+				<Input type="password" {...attrs} bind:value={$formData.password} />
+			</Form.Control>
+			<Form.FieldErrors />
+		</Form.Field>
+		<Form.Button disabled={loading}>Sign Up</Form.Button>
+		<!-- <SuperDebug data={$formData} /> -->
+	</form>
+	<div class="flex-1 flex justify-center">
+		<Button variant="ghost" href="/signin">Already have an account? Sign In</Button>
+	</div>
+</Layout>

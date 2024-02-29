@@ -6,6 +6,8 @@
 	import { Label } from './ui/label';
 	import type { PageData } from '../../routes/$types';
 	import type { SupabaseClient } from '@supabase/supabase-js';
+	import { PUBLIC_SITE_URL } from '$env/static/public';
+	('/update-password');
 
 	let loading = false;
 	let email = '';
@@ -16,7 +18,7 @@
 		try {
 			loading = true;
 			const { data, error } = await supabase.auth.resetPasswordForEmail(email, {
-				redirectTo: 'https://example.com/update-password'
+				redirectTo: PUBLIC_SITE_URL + '/update-password'
 			});
 			if (error) throw error;
 			toast.success('A password reset email has been sent!');

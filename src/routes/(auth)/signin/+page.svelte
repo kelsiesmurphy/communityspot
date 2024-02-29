@@ -10,6 +10,7 @@
 	import { Button } from '$lib/components/ui/button';
 	import ForgotPassword from '$lib/components/ForgotPassword.svelte';
 	import { onMount } from 'svelte';
+	import Layout from '../+layout.svelte';
 
 	export let data: PageData;
 	let { supabase, session } = data;
@@ -56,26 +57,28 @@
 	const { form: formData, enhance } = form;
 </script>
 
-<h1 class="text-2xl">Sign In</h1>
-<form method="POST" use:enhance>
-	<Form.Field {form} name="email">
-		<Form.Control let:attrs>
-			<Form.Label>Email</Form.Label>
-			<Input type="email" {...attrs} bind:value={$formData.email} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Field {form} name="password">
-		<Form.Control let:attrs>
-			<Form.Label>Password</Form.Label>
-			<Input type="password" {...attrs} bind:value={$formData.password} />
-		</Form.Control>
-		<Form.FieldErrors />
-	</Form.Field>
-	<Form.Button disabled={loading}>Sign In</Form.Button>
-	<!-- <SuperDebug data={$formData} /> -->
-</form>
-<div class="flex-1 flex flex-col items-center">
-	<ForgotPassword {supabase} />
-	<Button variant="ghost" href="/signup">Don't have an account? Sign Up</Button>
-</div>
+<Layout>
+	<h1 class="text-2xl">Sign In</h1>
+	<form method="POST" use:enhance>
+		<Form.Field {form} name="email">
+			<Form.Control let:attrs>
+				<Form.Label>Email</Form.Label>
+				<Input type="email" {...attrs} bind:value={$formData.email} />
+			</Form.Control>
+			<Form.FieldErrors />
+		</Form.Field>
+		<Form.Field {form} name="password">
+			<Form.Control let:attrs>
+				<Form.Label>Password</Form.Label>
+				<Input type="password" {...attrs} bind:value={$formData.password} />
+			</Form.Control>
+			<Form.FieldErrors />
+		</Form.Field>
+		<Form.Button disabled={loading}>Sign In</Form.Button>
+		<!-- <SuperDebug data={$formData} /> -->
+	</form>
+	<div class="flex-1 flex flex-col items-center">
+		<ForgotPassword {supabase} />
+		<Button variant="ghost" href="/signup">Don't have an account? Sign Up</Button>
+	</div>
+</Layout>
