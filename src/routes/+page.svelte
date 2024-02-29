@@ -1,10 +1,15 @@
-<h1 class="h1 font-thin">Hello</h1>
-<p>A Svelte, Supabase, Stripe, Cloudflare Pages starter.</p>
+<script lang="ts">
+	import type { PageData } from './$types';
 
-<h2 class="h1 font-thin">Go to subscriptions</h2>
+	export let data: PageData;
+	let { session, events } = data;
+	$: ({ session } = data);
+</script>
 
-<a href="/pricing" class="logo-item">Pricing</a>
+<h1 class="font-medium">Welcome to CommunitySpot</h1>
+<ul>
+    {#each events as event}
+        <li>{event.title}</li>
+    {/each}
+</ul>
 
-<h2 class="h1 font-thin">Login / Signup</h2>
-
-<a href="/signin" class="logo-item">Sign In</a>
