@@ -1,9 +1,6 @@
 <script>
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import { Button } from './ui/button';
-	import { mode } from 'mode-watcher';
-
-	$: darkmode = $mode === 'dark' ? 'wcb-d' : '';
 
 	const footerItems = [
 		{
@@ -57,8 +54,6 @@
 				alt="This website is hosted Green - checked by thegreenwebfoundation.org"
 				class="h-24"
 			/>
-			<div id="wcb" class={`carbonbadge ${darkmode}`}></div>
-			<script src="https://unpkg.com/website-carbon-badges@1.1.3/b.min.js" defer></script>
 		</div>
 	</div>
 	<hr />
