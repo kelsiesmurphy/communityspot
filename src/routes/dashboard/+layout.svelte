@@ -5,7 +5,7 @@
 	const sidebarNavItems = [
 		{
 			title: 'Events',
-			href: '/dashboard/events'
+			href: '/dashboard'
 		},
 		{
 			title: 'Groups',
@@ -18,6 +18,10 @@
 		{
 			title: 'Settings',
 			href: '/dashboard/settings'
+		},
+		{
+			title: 'Support',
+			href: '/dashboard/support'
 		},
 	];
 </script>

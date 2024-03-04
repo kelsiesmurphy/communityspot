@@ -18,7 +18,7 @@
 
 	onMount(() => {
 		if (session) {
-			goto('/profile');
+			goto('/dashboard');
 		}
 	});
 
