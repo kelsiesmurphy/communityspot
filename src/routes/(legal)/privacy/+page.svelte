@@ -9,11 +9,11 @@
 
 <section class="container grid items-center gap-6">
 	<div class="flex max-w-[980px] flex-col items-start gap-2">
-		<h1 class="text-3xl font-extrabold leading-tight tracking-tighter md:text-4xl">
+		<h1 class="text-2xl font-medium leading-tight tracking-tighter md:text-3xl">
 			Privacy Policy for {TERMS_PRIVACY_WEBSITE}
 		</h1>
 
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Effective Date: {TERMS_PRIVACY_EFFECTIVE_DATE}
 		</h4>
 
@@ -23,7 +23,7 @@
 			personal information. It also describes how we maintain, use, and disclose personal information.
 		</p>
 
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Information We Collect
 		</h4>
 
@@ -45,7 +45,7 @@
 			reaching our site, the name of the domain and host you used to access the Internet, and the
 			features of our site which you accessed.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Use of Information
 		</h4>
 
@@ -56,7 +56,7 @@
 			of interest to you, to enforce the legal terms that govern your use of our site, and/or for
 			the purposes for which you provided the information.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Information Sharing and Disclosure
 		</h4>
 
@@ -66,19 +66,19 @@
 			that either the law requires it, to protect the rights or property of {TERMS_PRIVACY_COMPANY},
 			or we must to provide you with the services or products you requested.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">Cookies</h4>
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">Cookies</h4>
 
 		<p class="max-w-[700px] text-lg text-muted-foreground">
 			We may use cookies to manage our users’ sessions and to store preferences, tracking
 			information, and language selection. Cookies may be used whether you register with us or not.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">Security</h4>
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">Security</h4>
 
 		<p class="max-w-[700px] text-lg text-muted-foreground">
 			We employ reasonable and current security methods to prevent unauthorized access, maintain
 			data accuracy, and ensure correct use of information.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Your Ability to Edit and Delete Your Account Information and Preferences
 		</h4>
 
@@ -87,7 +87,7 @@
 			However, please note that your identification, billing and contact information will remain on
 			our records for some period.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			Privacy Policy Updates
 		</h4>
 
@@ -95,7 +95,7 @@
 			We may update this policy from time to time. If we make significant changes, we will notify
 			you of the changes through our website or through others means, such as email.
 		</p>
-		<h4 class="mt-3 text-xl font-extrabold leading-tight tracking-tighter md:text-2xl">
+		<h4 class="mt-3 text-lg font-medium leading-tight tracking-tighter md:text-xl">
 			How to Contact Us
 		</h4>
 		<p class="max-w-[700px] text-lg text-muted-foreground">

@@ -3,6 +3,7 @@
 	import { Button } from './ui/button';
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
+	import { Search } from 'lucide-svelte';
 
 	export let session: any;
 	export let supabase: any;
@@ -26,7 +27,7 @@
 	>
 		Skip Navigation
 	</Button>
-	<div class="flex items-center gap-4">
+	<div class="flex-1 flex items-center gap-4">
 		<Button variant="link" href="/"><Wordmark /></Button>
 		<ul class="hidden sm:flex">
 			{#each [...navigationItems.values()] as value}
@@ -37,6 +38,9 @@
 		</ul>
 	</div>
 	<div class="flex items-center gap-4">
+		<Button variant="ghost" size="icon">
+			<Search class="h-4 w-4" />
+		</Button>
 		<ModeToggle />
 		<Button class="hidden sm:flex" href={session ? '/profile' : '/signin'}
 			>{session ? 'Profile' : 'Sign In'}</Button
