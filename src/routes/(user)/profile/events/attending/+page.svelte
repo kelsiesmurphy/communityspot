@@ -4,5 +4,5 @@
 	$: ({ session, supabase } = data);
 </script>
 
-<h1>Upcoming Events:</h1>
+<h1>Events I am attending:</h1>
 <p>{JSON.stringify(events)}</p>

@@ -2,6 +2,7 @@
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import { Sprout } from 'lucide-svelte';
 	import { Button } from './ui/button';
+	import { mode } from 'mode-watcher';
 
 	const footerItems = [
 		{
@@ -15,10 +16,6 @@
 		{
 			title: 'Pricing',
 			link: '/pricing'
-		},
-		{
-			title: 'Privacy',
-			link: '/privacy'
 		}
 	];
 	const subFooterItems = [
@@ -47,7 +44,7 @@
 			<Button variant="link" href="/"><Wordmark /></Button>
 			<ul class="flex">
 				{#each [...footerItems.values()] as value}
-					<li>
+					<li class={`${$mode === 'dark' && 'text-white'}`}>
 						<Button href={value.link} variant="ghost">{value.title}</Button>
 					</li>
 				{/each}

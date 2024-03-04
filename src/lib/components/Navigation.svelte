@@ -10,12 +10,8 @@
 
 	const navigationItems = [
 		{
-			title: 'About',
+			title: 'About Us',
 			link: '/about'
-		},
-		{
-			title: 'Pricing',
-			link: '/pricing'
 		}
 	];
 </script>
