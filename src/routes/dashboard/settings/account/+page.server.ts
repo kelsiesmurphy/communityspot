@@ -1,18 +1,18 @@
+import type { PageServerLoad, Actions } from '../../../profile-old/settings/$types';
+import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import type { PageServerLoad } from '../$types';
-import { notificationsFormSchema } from './notifications-form.svelte';
-import { fail, type Actions } from '@sveltejs/kit';
+import { formSchema } from './schema';
 
 export const load: PageServerLoad = async () => {
 	return {
-		form: await superValidate(zod(notificationsFormSchema))
+		form: await superValidate(zod(formSchema))
 	};
 };
 
 export const actions: Actions = {
 	default: async (event) => {
-		const form = await superValidate(event, zod(notificationsFormSchema));
+		const form = await superValidate(event, zod(formSchema));
 		if (!form.valid) {
 			return fail(400, {
 				form

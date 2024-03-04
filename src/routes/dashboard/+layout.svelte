@@ -4,28 +4,28 @@
 
 	const sidebarNavItems = [
 		{
-			title: 'Attending',
-			href: '/profile/events/attending'
+			title: 'Events',
+			href: '/dashboard/events'
 		},
 		{
-			title: 'Hosting',
-			href: '/profile/events/hosting'
+			title: 'Groups',
+			href: '/dashboard/groups'
 		},
 		{
-			title: 'My Profile',
-			href: '/profile'
+			title: 'Profile',
+			href: '/dashboard/profile'
 		},
 		{
-			title: 'Notifications',
-			href: '/profile/notifications'
+			title: 'Settings',
+			href: '/dashboard/settings'
 		},
 	];
 </script>
 
 <div class="space-y-6">
 	<div class="space-y-0.5">
-		<h2 class="text-2xl font-bold tracking-tight">Settings</h2>
-		<p class="text-muted-foreground">Manage your account settings and set e-mail preferences.</p>
+		<h2 class="text-2xl font-bold tracking-tight">Dashboard</h2>
+		<p class="text-muted-foreground">Manage your details.</p>
 	</div>
 	<Separator class="my-6" />
 	<div class="flex flex-col space-y-8 lg:flex-row lg:space-x-12 lg:space-y-0">

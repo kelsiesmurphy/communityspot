@@ -36,7 +36,7 @@
 	const interval = subscription?.prices?.interval;
 </script>
 
-<h1 class="h1 font-thin">Profile Overview</h1>
+<h1 class="h1 font-thin">Settings</h1>
 <section>
 	{#if !session}
 		<div>Not logged in</div>
@@ -68,7 +68,7 @@
 			</p>
 		</div>
 
-		<Button href="/profile/settings" class="btn variant-filled-primary">Settings</Button>
+		<Button href="/dashboard/settings/account" class="btn variant-filled-primary">Account Settings</Button>
 		<Button class="btn variant-filled" on:click={handleSignOut}>Sign out</Button>
 	{/if}
 </section>

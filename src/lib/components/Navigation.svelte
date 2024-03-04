@@ -4,9 +4,12 @@
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
 	import { Search } from 'lucide-svelte';
+	import AvatarDropdown from './AvatarDropdown.svelte';
+	import type { PageData } from '../../routes/$types';
+	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
-	export let session: any;
-	export let supabase: any;
+	export let session: Session | null;
+	export let supabase: SupabaseClient;
 
 	const navigationItems = [
 		{
@@ -38,9 +41,11 @@
 			<Search class="h-4 w-4" />
 		</Button>
 		<ModeToggle />
-		<Button class="hidden sm:flex" href={session ? '/profile' : '/signin'}
-			>{session ? 'Profile' : 'Sign In'}</Button
-		>
+		{#if session}
+			<AvatarDropdown {session} {supabase} />
+		{:else}
+			<Button class="hidden sm:flex" href="/signin">Sign In</Button>
+		{/if}
 		<div class="sm:hidden">
 			<MobileNavigation {session} {supabase} {navigationItems} />
 		</div>
