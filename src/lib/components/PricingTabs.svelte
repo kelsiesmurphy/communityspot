@@ -5,17 +5,18 @@
 	import { goto } from '$app/navigation';
 	import { getStripe } from '$lib/stripe/stripe-client';
 	import { postData } from '$lib/utils/helpers';
+	import type { Session } from '@supabase/supabase-js';
 
-	export let products: any, subscription: any, session: any;
+	export let products, subscription, session: Session;
 
 	const billingIntervals = [
 		{ interval: 'month', title: 'Monthly' },
 		{ interval: 'year', title: 'Yearly' }
 	];
 
-	function showPriceString(product: any, billingInterval: any) {
+	function showPriceString(product, billingInterval) {
 		const price = product?.prices?.find(
-			(price: any) => price.interval === billingInterval.interval
+			(price) => price.interval === billingInterval.interval
 		);
 		if (!price) return null;
 
@@ -27,9 +28,9 @@
 		return priceString;
 	}
 
-	const handleCheckout = async (product: any, billingInterval: any) => {
+	const handleCheckout = async (product, billingInterval) => {
 		const price = product?.prices?.find(
-			(price: any) => price.interval === billingInterval.interval
+			(price) => price.interval === billingInterval.interval
 		);
 		if (!price) return null;
 

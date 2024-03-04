@@ -3,10 +3,11 @@
 	import { Menu } from 'lucide-svelte';
 	import { Button, buttonVariants } from './ui/button';
 	import Wordmark from '$lib/assets/Wordmark.svelte';
+	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
-	export let supabase: any;
-	export let session: any;
-	export let navigationItems: any[];
+	export let supabase: SupabaseClient;
+	export let session: Session;
+	export let navigationItems: {}[];
 
 	const handleSignOut = async () => {
 		await supabase.auth.signOut();

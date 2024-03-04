@@ -1,4 +1,4 @@
-export const load = async ({ parent }: any) => {
+export const load = async ({ parent }) => {
 	const { supabase } = await parent();
 
 	const { data: subscription } = await supabase

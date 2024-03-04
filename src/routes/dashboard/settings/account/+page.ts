@@ -1,6 +1,6 @@
 import { fail } from '@sveltejs/kit';
 
-export const load = async ({ parent }: any) => {
+export const load = async ({ parent }) => {
 	const { supabase, session } = await parent();
 	if (!session) {
 		// the user is not signed in

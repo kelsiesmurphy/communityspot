@@ -1,7 +1,7 @@
-export const load = async ({ parent }: any) => {
+export const load = async ({ parent }) => {
 	const { supabase, session } = await parent();
 
-	const userId = session.user?.id;
+	const userId = session?.user?.id;
 
 	if (!userId) {
 		return {

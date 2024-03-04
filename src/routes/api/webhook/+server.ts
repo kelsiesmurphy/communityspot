@@ -31,7 +31,7 @@ export async function POST({ request }: RequestEvent) {
 	try {
 		if (!sig || !webhookSecret) return;
 		event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
-	} catch (err: any) {
+	} catch (err) {
 		console.log(`❌ Error message: ${err.message}`);
 		return new Response(`Webhook Error: ${err.message}`, { status: 400 });
 	}

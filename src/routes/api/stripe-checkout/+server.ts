@@ -2,7 +2,7 @@ import { stripe } from '$lib/stripe/stripe';
 import { createOrRetrieveCustomer } from '$lib/utils/supabase-admin';
 import { getURL } from '$lib/utils/helpers';
 
-export async function POST({ request, locals: { getSession } }: any) {
+export async function POST({ request, locals: { getSession } }) {
 	if (request.method === 'POST') {
 		// 1. Destructure the price and quantity from the POST body
 		const { price, quantity = 1, metadata = {} } = await request.json();
@@ -73,7 +73,7 @@ export async function POST({ request, locals: { getSession } }: any) {
 					{ status: 500 }
 				);
 			}
-		} catch (err: any) {
+		} catch (err) {
 			console.log(err);
 			return new Response(JSON.stringify(err), { status: 500 });
 		}

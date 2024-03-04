@@ -2,7 +2,7 @@ import { stripe } from '$lib/stripe/stripe';
 import { createOrRetrieveCustomer } from '$lib/utils/supabase-admin';
 import { getURL } from '$lib/utils/helpers';
 
-export async function POST({ request, locals: { getSession } }: any) {
+export async function POST({ request, locals: { getSession } }) {
 	if (request.method === 'POST') {
 		try {
 			const supabaseSession = await getSession();
@@ -21,7 +21,7 @@ export async function POST({ request, locals: { getSession } }: any) {
 			return new Response(JSON.stringify({ url }), {
 				status: 200
 			});
-		} catch (err: any) {
+		} catch (err) {
 			console.log(err);
 			return new Response(JSON.stringify({ error: { statusCode: 500, message: err.message } }), {
 				status: 500
