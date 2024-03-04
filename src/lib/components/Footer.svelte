@@ -8,7 +8,7 @@
 			link: '/'
 		},
 		{
-			title: 'About',
+			title: 'About Us',
 			link: '/about'
 		},
 		{
@@ -40,7 +40,7 @@
 	<div class="flex justify-between flex-wrap">
 		<div class="space-y-6 text-zinc-600">
 			<Button variant="link" href="/"><Wordmark /></Button>
-			<ul class="flex">
+			<ul class="flex text-white">
 				{#each [...footerItems.values()] as value}
 					<li>
 						<Button href={value.link} variant="ghost">{value.title}</Button>

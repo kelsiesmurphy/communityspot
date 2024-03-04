@@ -3,14 +3,16 @@
 
 	import type { Database } from '$lib/supabase/types_db';
 	import { goto } from '$app/navigation';
+	import type { Session } from '@supabase/supabase-js';
 
 	type Event = Database['public']['Tables']['events']['Row'];
 
 	export let event: Event;
+	export let session: Session | null;
 </script>
 
 <button
-	on:click={() => goto(`/events/${event.id}`)}
+	on:click={() => goto(session ? `/events/${event.id}` : '/signin')}
 	class="rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
 	<Card.Root class="max-w-sm overflow-hidden">

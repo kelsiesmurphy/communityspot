@@ -11,7 +11,7 @@
 <ul>
 	{#each events as event}
 		<li>
-			<EventCard {event} />
+			<EventCard {session} {event} />
 		</li>
 	{/each}
 </ul>
