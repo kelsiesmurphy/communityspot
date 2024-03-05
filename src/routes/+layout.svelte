@@ -8,7 +8,7 @@
 	import { onMount } from 'svelte';
 
 	import Navigation from '$lib/components/(navigation)/Navigation.svelte';
-	import Footer from '$lib/components/Footer.svelte';
+	import Footer from '$lib/components/(navigation)/Footer.svelte';
 	import { ModeWatcher, mode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 

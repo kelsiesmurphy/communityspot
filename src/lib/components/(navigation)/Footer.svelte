@@ -1,7 +1,7 @@
 <script>
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import { Sprout } from 'lucide-svelte';
-	import { Button } from './ui/button';
+	import { Button } from '../ui/button';
 	import { mode } from 'mode-watcher';
 
 	const footerItems = [
