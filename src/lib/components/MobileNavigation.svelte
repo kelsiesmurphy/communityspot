@@ -6,8 +6,8 @@
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
 	export let supabase: SupabaseClient;
-	export let session: Session;
-	export let navigationItems: {}[];
+	export let session: Session | null;
+	export let navigationItems: { title: string; link: string }[];
 
 	const handleSignOut = async () => {
 		await supabase.auth.signOut();

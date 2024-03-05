@@ -5,7 +5,6 @@
 	import MobileNavigation from './MobileNavigation.svelte';
 	import { Search } from 'lucide-svelte';
 	import AvatarDropdown from './AvatarDropdown.svelte';
-	import type { PageData } from '../../routes/$types';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
 	export let session: Session | null;
