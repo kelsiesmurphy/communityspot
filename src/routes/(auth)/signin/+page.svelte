@@ -8,7 +8,7 @@
 	import type { PageData } from './$types';
 	import { goto } from '$app/navigation';
 	import { Button } from '$lib/components/ui/button';
-	import ForgotPassword from '$lib/components/ForgotPassword.svelte';
+	import ForgotPassword from '../(components)/ForgotPassword.svelte';
 	import { onMount } from 'svelte';
 	import Layout from '../+layout.svelte';
 

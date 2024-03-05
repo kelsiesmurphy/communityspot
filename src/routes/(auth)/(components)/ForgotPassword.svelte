@@ -3,8 +3,8 @@
 	import * as Dialog from '$lib/components/ui/dialog';
 	import { Input } from '$lib/components/ui/input';
 	import { toast } from 'svelte-sonner';
-	import { Label } from './ui/label';
-	import type { PageData } from '../../routes/$types';
+	import { Label } from '../../../lib/components/ui/label';
+	import type { PageData } from '../../$types';
 	import type { SupabaseClient } from '@supabase/supabase-js';
 	import { PUBLIC_SITE_URL } from '$env/static/public';
 	('/update-password');

@@ -1,7 +1,7 @@
 <script lang="ts">
 	import * as Sheet from '$lib/components/ui/sheet';
 	import { Menu } from 'lucide-svelte';
-	import { Button, buttonVariants } from './ui/button';
+	import { Button, buttonVariants } from '../ui/button';
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 

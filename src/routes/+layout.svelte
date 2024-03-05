@@ -7,7 +7,7 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	import Navigation from '$lib/components/Navigation.svelte';
+	import Navigation from '$lib/components/(navigation)/Navigation.svelte';
 	import Footer from '$lib/components/Footer.svelte';
 	import { ModeWatcher, mode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';

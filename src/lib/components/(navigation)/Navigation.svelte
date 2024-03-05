@@ -1,6 +1,6 @@
 <script lang="ts">
 	import ModeToggle from './ModeToggle.svelte';
-	import { Button } from './ui/button';
+	import { Button } from '../ui/button';
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
 	import { Search } from 'lucide-svelte';

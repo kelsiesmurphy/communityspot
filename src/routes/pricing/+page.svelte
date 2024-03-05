@@ -1,5 +1,5 @@
 <script lang="ts">
-	import PricingTabs from '$lib/components/PricingTabs.svelte';
+	import PricingTabs from './PricingTabs.svelte';
 
 	import type { PageData } from '../pricing/$types';
 
