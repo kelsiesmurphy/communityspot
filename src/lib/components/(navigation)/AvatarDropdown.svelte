@@ -28,7 +28,7 @@
 
 <DropdownMenu.Root>
 	<DropdownMenu.Trigger asChild let:builder>
-		<Button variant="ghost" builders={[builder]} class="relative h-8 w-8 rounded-full">
+		<Button variant="ghost" builders={[builder]} class="relative h-8 w-8 rounded-full hidden sm:flex">
 			<Avatar.Root class="h-9 w-9">
 				<Avatar.Image
 					src={session?.user.user_metadata.avatar_url}

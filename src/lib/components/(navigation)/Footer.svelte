@@ -61,7 +61,7 @@
 	<hr />
 	<div class="flex flex-wrap-reverse gap-8 justify-between items-center text-zinc-400">
 		<p>© 2024 CommunitySpot. All rights reserved.</p>
-		<ul class="flex">
+		<ul class="flex flex-wrap">
 			{#each [...subFooterItems.values()] as value}
 				<li>
 					<Button href={value.link} variant="ghost" class="space-x-2">
