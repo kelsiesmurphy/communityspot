@@ -120,7 +120,7 @@
 			<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
 		</Button>
 	</Popover.Trigger>
-	<Popover.Content class="w-[200px] p-0">
+	<Popover.Content class="w-[300px] sm:w-[200px] p-0">
 		<Command.Root>
 			<Command.Input placeholder="Search city..." class="h-9  focus-visible:ring-0 border-none" />
 			<Command.Empty>No city found.</Command.Empty>
