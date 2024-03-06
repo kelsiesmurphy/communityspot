@@ -26,7 +26,7 @@
 	];
 </script>
 
-<div class="space-y-6">
+<div class="space-y-6 container p-8 ">
 	<div class="space-y-0.5">
 		<h2 class="text-2xl font-bold tracking-tight">Dashboard</h2>
 		<p class="text-muted-foreground">Manage your details.</p>

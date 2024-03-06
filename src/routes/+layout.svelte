@@ -32,9 +32,9 @@
 
 <ModeWatcher />
 <Toaster theme={$mode} />
-<div class="flex flex-col min-h-screen">
+<div class="min-h-screen flex flex-col">
 	<Navigation {session} {supabase} />
-	<div id="main-content" class="flex-1 container p-8 space-y-8">
+	<div id="main-content" class="flex-1">
 		<slot />
 	</div>
 	<Footer />

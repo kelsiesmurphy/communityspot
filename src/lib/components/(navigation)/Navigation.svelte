@@ -36,9 +36,6 @@
 		</ul>
 	</div>
 	<div class="flex items-center gap-4">
-		<Button variant="ghost" size="icon">
-			<Search class="h-4 w-4" />
-		</Button>
 		<ModeToggle />
 		{#if session}
 			<AvatarDropdown {session} {supabase} />

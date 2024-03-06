@@ -13,15 +13,15 @@
 
 <button
 	on:click={() => goto(session ? `/events/${event.id}` : '/signin')}
-	class="rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+	class="flex-1 max-w-3xl rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
-	<Card.Root class="max-w-sm overflow-hidden">
-		<img src={event.image} alt={event.image_alt} />
+	<Card.Root>
+		<!-- <img src={event.image} alt={event.image_alt} /> -->
 		<Card.Header>
 			<Card.Title>{event.title}</Card.Title>
 			<Card.Description>{event.description}</Card.Description>
 		</Card.Header>
-		<Card.Content class="flex gap-4"></Card.Content>
-		<Card.Footer></Card.Footer>
+		<Card.Content class="flex gap-4">Content</Card.Content>
+		<Card.Footer>Footer</Card.Footer>
 	</Card.Root>
 </button>

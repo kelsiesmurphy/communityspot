@@ -1,16 +1,17 @@
 <script lang="ts">
-	import EventCard from './events/EventCard.svelte';
+	import EventCard from '../lib/components/(index)/EventCard.svelte';
 	import type { PageData } from './$types';
+	import Hero from '$lib/components/(index)/Hero.svelte';
 
 	export let data: PageData;
 	let { session, events } = data;
 	$: ({ session } = data);
 </script>
 
-<h1 class="font-medium">Welcome to CommunitySpot</h1>
-<ul>
+<Hero />
+<ul class="container relative -top-16">
 	{#each events as event}
-		<li>
+		<li class="flex justify-center">
 			<EventCard {session} {event} />
 		</li>
 	{/each}
