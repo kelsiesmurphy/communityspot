@@ -1,1 +1,1 @@
-# SvelteKit Stripe Supabase Template
+# CommunitySpot Application
