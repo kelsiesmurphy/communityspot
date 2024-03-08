@@ -4,6 +4,8 @@
 	import type { Database } from '$lib/supabase/types_db';
 	import { goto } from '$app/navigation';
 	import type { Session } from '@supabase/supabase-js';
+	import { Calendar, ChevronRight, Clock, MapPin } from 'lucide-svelte';
+	import Separator from '../ui/separator/separator.svelte';
 
 	type Event = Database['public']['Tables']['events']['Row'];
 
@@ -15,13 +17,32 @@
 	on:click={() => goto(session ? `/events/${event.id}` : '/signin')}
 	class="flex-1 max-w-3xl rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
-	<Card.Root>
-		<!-- <img src={event.image} alt={event.image_alt} /> -->
-		<Card.Header>
-			<Card.Title>{event.title}</Card.Title>
-			<Card.Description>{event.description}</Card.Description>
-		</Card.Header>
-		<Card.Content class="flex gap-4">Content</Card.Content>
-		<Card.Footer>Footer</Card.Footer>
+	<Card.Root class="flex gap-2 items-center">
+		<img src={event.image} alt={event.image_alt} class="w-28 m-4 aspect-square rounded-md" />
+		<Card.Content class="flex-1">
+			<Card.Header class="text-left pl-0">
+				<Card.Title>{event.title}</Card.Title>
+				<Card.Description>{event.description}</Card.Description>
+			</Card.Header>
+			<div class="flex gap-4 text-muted-foreground">
+				<div class="flex items-center gap-2">
+					<MapPin />
+					<p>Southview Hotel</p>
+				</div>
+				<Separator orientation="vertical" />
+				<div class="flex items-center gap-2">
+					<Clock />
+					<p>6:30pm</p>
+				</div>
+				<Separator orientation="vertical" />
+				<div class="flex items-center gap-2">
+					<Calendar />
+					<p>Add to calendar</p>
+				</div>
+			</div>
+		</Card.Content>
+		<div class="p-4">
+			<ChevronRight />
+		</div>
 	</Card.Root>
 </button>

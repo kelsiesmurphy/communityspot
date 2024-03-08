@@ -114,10 +114,10 @@
 			variant="secondary"
 			role="combobox"
 			aria-expanded={open}
-			class="w-[300px] sm:w-[200px] pl-8 justify-between border border-input bg-white focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-white cursor-text"
+			class={`w-[300px] sm:w-[200px] pl-8 justify-between border border-input bg-white focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-white text-zinc-500 cursor-text ${selectedValue !== 'City' && 'text-zinc-900'}`}
 		>
 			{selectedValue}
-			<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0 opacity-50" />
+			<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0" />
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="w-[300px] sm:w-[200px] p-0">

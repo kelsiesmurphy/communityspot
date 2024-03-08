@@ -40,7 +40,8 @@
 		{#if session}
 			<AvatarDropdown {session} {supabase} />
 		{:else}
-			<Button class="hidden sm:flex" href="/signin">Sign In</Button>
+			<Button class="hidden sm:flex" variant="ghost" href="/signin">Log In</Button>
+			<Button class="hidden sm:flex" href="/signup">Sign Up</Button>
 		{/if}
 		<div class="sm:hidden">
 			<MobileNavigation {session} {supabase} {navigationItems} />

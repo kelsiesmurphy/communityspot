@@ -18,14 +18,17 @@
 		</div>
 	</div>
 	<div class="flex gap-2 justify-center flex-wrap">
-		<div class="w-[300px] sm:w-[200px] relative">
-			<Search class="absolute left-2 top-3 h-4 w-4 text-muted-foreground" />
-			<Input placeholder="Search events" class="pl-8 bg-white text-black font-medium" />
+		<div class="w-[300px] sm:w-full sm:max-w-sm relative">
+			<Search class="absolute left-2 top-3 h-4 w-4 text-zinc-500" />
+			<Input
+				placeholder="Search events"
+				class="pl-8 bg-white  placeholder:text-zinc-500 text-zinc-900 font-medium"
+			/>
 		</div>
 		<div class="relative">
-			<Map class="absolute left-2 top-3 h-4 w-4 text-muted-foreground" />
+			<Map class="absolute left-2 top-3 h-4 w-4 text-zinc-500" />
 			<CitySearch />
 		</div>
-		<Button class="w-[300px] sm:w-[200px]">Search</Button>
+		<Button class="w-[300px] sm:w-fit">Search</Button>
 	</div>
 </section>
