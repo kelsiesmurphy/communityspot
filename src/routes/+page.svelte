@@ -1,5 +1,5 @@
 <script lang="ts">
-	import EventCard from '../lib/components/(index)/EventCard.svelte';
+	import EventCard from '../lib/components/EventCard.svelte';
 	import type { PageData } from './$types';
 	import Hero from '$lib/components/(index)/Hero.svelte';
 
@@ -13,7 +13,9 @@
 	<ul class="container relative -top-16 space-y-6">
 		{#each events ?? [] as event}
 			<li class="flex justify-center">
-				<EventCard {session} {event} />
+				<div class="flex-1 flex max-w-3xl">
+					<EventCard {session} {event} />
+				</div>
 			</li>
 		{/each}
 	</ul>

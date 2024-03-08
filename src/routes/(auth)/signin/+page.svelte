@@ -33,7 +33,7 @@
 			});
 			if (error) throw error;
 			toast.success('You have been signed in!');
-			goto('/profile');
+			goto('/dashboard');
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);

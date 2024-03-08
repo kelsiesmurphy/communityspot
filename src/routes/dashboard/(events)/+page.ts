@@ -16,6 +16,7 @@ export const load = async ({ parent }) => {
         )`)
 		.eq('attendees.user_id', userId)
 
+	console.log(userId)
 	if (error) {
 		console.error('Error fetching events:', error.message);
 		return {

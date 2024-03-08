@@ -51,7 +51,7 @@
 	};
 </script>
 
-<form method="POST" class="space-y-8" use:enhance id="profile-form">
+<form method="POST" class="space-y-8 max-w-md" use:enhance id="profile-form">
 	<Form.Field {form} name="username">
 		<Form.Control let:attrs>
 			<Form.Label>Username</Form.Label>

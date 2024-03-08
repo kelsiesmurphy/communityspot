@@ -5,7 +5,7 @@
 	import { goto } from '$app/navigation';
 	import type { Session } from '@supabase/supabase-js';
 	import { Calendar, ChevronRight, Clock, MapPin } from 'lucide-svelte';
-	import Separator from '../ui/separator/separator.svelte';
+	import Separator from './ui/separator/separator.svelte';
 
 	type Event = Database['public']['Tables']['events']['Row'];
 
@@ -15,7 +15,7 @@
 
 <button
 	on:click={() => goto(session ? `/events/${event.id}` : '/signin')}
-	class="flex-1 max-w-3xl rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+	class="flex-1 rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
 	<Card.Root class="flex gap-2 items-center">
 		<img src={event.image} alt={event.image_alt} class="w-28 m-4 aspect-square rounded-md" />

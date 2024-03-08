@@ -24,7 +24,7 @@
 		}
 		console.log(data);
 		toast.success(`You are signed up to ${event.title}!`);
-		goto('/profile/my-events');
+		goto('/dashboard');
 	};
 </script>
 
