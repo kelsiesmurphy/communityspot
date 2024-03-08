@@ -6,11 +6,10 @@
 	import { zodClient } from 'sveltekit-superforms/adapters';
 	import { toast } from 'svelte-sonner';
 	import type { PageData } from './$types';
-	import { Button } from '$lib/components/ui/button';
 	import { error } from '@sveltejs/kit';
 
 	export let data: PageData;
-	let user = data.userdata;
+	let user: any = data.userdata;
 
 	let { supabase, session } = data;
 	$: ({ supabase, session } = data);
@@ -42,7 +41,7 @@
 		}
 	};
 
-	const form = superForm(data.userdata, {
+	const form = superForm(user, {
 		validators: zodClient(formSchema),
 		onUpdated: ({ form }) => {
 			if (form.valid) {
@@ -53,15 +52,10 @@
 		}
 	});
 
-	const handleSignOut = async () => {
-		await supabase.auth.signOut();
-	};
-
 	const { form: formData, enhance } = form;
 </script>
 
-{#if user != null}
-	<h1 class="text-2xl">Settings</h1>
+{#if data.userdata != null}
 	<form method="POST" use:enhance>
 		<Form.Field {form} name="full_name">
 			<Form.Control let:attrs>
@@ -78,9 +72,8 @@
 			<Form.FieldErrors />
 		</Form.Field>
 		<Form.Button>Save</Form.Button>
-		<SuperDebug data={$formData} />
+		<!-- <SuperDebug data={$formData} /> -->
 	</form>
-	<Button class="btn variant-filled" on:click={handleSignOut}>Sign out</Button>
 {:else}
 	<div>Error loading user</div>
 {/if}

@@ -1,4 +1,4 @@
-import type { PageServerLoad, Actions } from '../../../profile-old/settings/$types';
+import type { PageServerLoad, Actions } from './$types';
 import { fail } from '@sveltejs/kit';
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';

@@ -20,6 +20,10 @@
 			href: '/dashboard/settings'
 		},
 		{
+			title: 'Notifications',
+			href: '/dashboard/notifications'
+		},
+		{
 			title: 'Support',
 			href: '/dashboard/support'
 		},
