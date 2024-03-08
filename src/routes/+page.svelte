@@ -8,6 +8,10 @@
 	$: ({ session } = data);
 </script>
 
+<svelte:head>
+	<title>CommunitySpot</title>
+</svelte:head>
+
 <section class="sm:p-8">
 	<Hero />
 	<ul class="container relative -top-16 space-y-6">
