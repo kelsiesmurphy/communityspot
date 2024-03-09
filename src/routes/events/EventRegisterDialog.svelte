@@ -22,7 +22,6 @@
 		if (error) {
 			console.log('Error: ' + error);
 		}
-		console.log(data);
 		toast.success(`You are signed up to ${event.title}!`);
 		goto('/dashboard');
 	};

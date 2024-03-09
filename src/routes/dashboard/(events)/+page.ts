@@ -11,12 +11,13 @@ export const load = async ({ parent }) => {
 
 	const { data: events, error } = await supabase
 		.from('events')
-		.select(`*, attendees!inner(
+		.select(
+			`*, attendees!inner(
             user_id, event_id
-        )`)
-		.eq('attendees.user_id', userId)
+        )`
+		)
+		.eq('attendees.user_id', userId);
 
-	console.log(userId)
 	if (error) {
 		console.error('Error fetching events:', error.message);
 		return {
