@@ -95,6 +95,20 @@ This is an example of how to list things you need to use the software and how to
    PUBLIC_SUPABASE_ANON_KEY=XXXXX
    ...
    ```
+5. Get the application running locally
+   ```sh
+   pnpm run dev
+   ```
+6. Create a build of the application (optional)
+   ```sh
+   pnpm run build
+   ```
+7. Deploy the application to Cloudflare Pages via Direct Upload (not used as primary deployment method) (optional)
+   ```sh
+   pnpm run pages:deploy
+   ```
+
+We use a `dev` branch for working on new features, and only merge `dev` to the `main` branch when stable, in the form of a Pull Request. This automatically deploys the app to www.communityspot.co.uk. As shown in step 7, we can also deploy to Cloudflare Pages via a direct upload option, however this should be used for backup purposes only.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
