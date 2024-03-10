@@ -46,7 +46,7 @@
 
 ## About The Project
 
-[![CommunitySpot Screen Shot][communityspot-screenshot]](https://cothfwilejjjgulziyfd.supabase.co/storage/v1/object/public/EuansGuide%20Bucket/Portfolio%20mockup.jpg?t=2024-03-10T22%3A26%3A37.081Z)
+![CommunitySpot Screen Shot](https://cothfwilejjjgulziyfd.supabase.co/storage/v1/object/public/EuansGuide%20Bucket/Portfolio%20mockup.jpg?t=2024-03-10T22%3A26%3A37.081Z)
 
 CommunitySpot was created to provide a solution for small to medium communities looking to attend and host events.
 
