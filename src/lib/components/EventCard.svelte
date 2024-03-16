@@ -18,30 +18,36 @@
 	class="flex-1 rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
 	<Card.Root class="flex gap-2 items-center">
-		<img src={event.image} alt={event.image_alt} class="w-28 m-4 aspect-square rounded-md" />
-		<Card.Content class="flex-1">
-			<Card.Header class="text-left pl-0">
-				<Card.Title>{event.title}</Card.Title>
-				<Card.Description>{event.description}</Card.Description>
-			</Card.Header>
-			<div class="flex gap-4 text-muted-foreground">
-				<div class="flex items-center gap-2">
-					<MapPin />
-					<p>Southview Hotel</p>
-				</div>
-				<Separator orientation="vertical" />
-				<div class="flex items-center gap-2">
-					<Clock />
-					<p>6:30pm</p>
-				</div>
-				<Separator orientation="vertical" />
-				<div class="flex items-center gap-2">
-					<Calendar />
-					<p>Add to calendar</p>
-				</div>
+		<div class="flex flex-wrap">
+			<div class="p-4 flex-1 md:max-w-40 max-h-40 xs:max-h-full min-w-[250px]">
+				<img
+					src={event.image}
+					alt={event.image_alt}
+					class="w-full h-full object-cover rounded-md"
+				/>
 			</div>
-		</Card.Content>
-		<div class="p-4">
+			<Card.Content class="flex-1 flex flex-col justify-center min-w-[250px]">
+				<Card.Header class="text-left pl-0">
+					<Card.Title>{event.title}</Card.Title>
+					<Card.Description>{event.description}</Card.Description>
+				</Card.Header>
+				<div class="flex flex-wrap gap-4 text-muted-foreground">
+					<div class="flex items-center gap-2">
+						<MapPin />
+						<p>Southview Hotel</p>
+					</div>
+					<div class="flex items-center gap-2">
+						<Clock />
+						<p>6:30pm</p>
+					</div>
+					<div class="flex items-center gap-2">
+						<Calendar />
+						<p>Add to calendar</p>
+					</div>
+				</div>
+			</Card.Content>
+		</div>
+		<div class="hidden md:block p-4">
 			<ChevronRight />
 		</div>
 	</Card.Root>

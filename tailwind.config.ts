@@ -15,6 +15,9 @@ const config: import('tailwindcss').Config = {
 			}
 		},
 		extend: {
+			screens: {
+				xs: '566px'
+			},
 			colors: {
 				border: 'hsl(var(--border) / <alpha-value>)',
 				input: 'hsl(var(--input) / <alpha-value>)',
