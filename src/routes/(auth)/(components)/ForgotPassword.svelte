@@ -4,7 +4,6 @@
 	import { Input } from '$lib/components/ui/input';
 	import { toast } from 'svelte-sonner';
 	import { Label } from '../../../lib/components/ui/label';
-	import type { PageData } from '../../$types';
 	import type { SupabaseClient } from '@supabase/supabase-js';
 	import { PUBLIC_SITE_URL } from '$env/static/public';
 	('/update-password');
@@ -22,7 +21,6 @@
 			});
 			if (error) throw error;
 			toast.success('A password reset email has been sent!');
-			console.log(data);
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);

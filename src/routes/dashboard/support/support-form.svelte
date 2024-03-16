@@ -15,7 +15,7 @@
 	import { Textarea } from '$lib/components/ui/textarea';
 	import { Input } from '$lib/components/ui/input';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
-	// import SuperDebug from 'sveltekit-superforms';
+	import SuperDebug from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
 
 	export let data: SuperValidated<Infer<SupportFormSchema>>;
@@ -48,13 +48,11 @@
 			<Form.Label>Message</Form.Label>
 			<Textarea {...attrs} bind:value={$formData.message} />
 		</Form.Control>
-		<Form.Description
-			>Maximum of 160 characters</Form.Description
-		>
+		<Form.Description>Maximum of 160 characters</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
 
 	<Form.Button>Send</Form.Button>
 </form>
 
-<!-- <SuperDebug data={$formData} /> -->
+<SuperDebug data={$formData} />

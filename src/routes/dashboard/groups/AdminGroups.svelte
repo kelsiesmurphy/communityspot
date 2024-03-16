@@ -1,15 +1,14 @@
 <script lang="ts">
-	import EventCard from '$lib/components/EventCard.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-	let { session, attendingEvents } = data;
+	let { adminGroups } = data;
 </script>
 
 <ul class="flex flex-col gap-6">
-	{#each attendingEvents as event}
+	{#each adminGroups as group}
 		<li class="flex-1 flex">
-			<EventCard {session} {event} />
+			<h3>{group.name}</h3>
 		</li>
 	{/each}
 </ul>

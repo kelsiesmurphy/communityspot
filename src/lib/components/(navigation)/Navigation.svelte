@@ -3,7 +3,6 @@
 	import { Button } from '../ui/button';
 	import Wordmark from '$lib/assets/Wordmark.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
-	import { Search } from 'lucide-svelte';
 	import AvatarDropdown from './AvatarDropdown.svelte';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
 
