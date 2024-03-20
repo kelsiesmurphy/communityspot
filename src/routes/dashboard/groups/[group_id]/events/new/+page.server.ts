@@ -12,6 +12,7 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	default: async (event) => {
+		const { group_id } = event.params;
 		const form = await superValidate(event, zod(formSchema));
 		if (!form.valid) {
 			return fail(400, {
@@ -37,10 +38,11 @@ export const actions: Actions = {
 			.from('events')
 			.insert([
 				{
+					group_id: group_id,
 					title: title,
 					description: description,
 					date_start: date_start,
-					date_end: date_end,
+					date_end: date_end
 				}
 			])
 			.select();

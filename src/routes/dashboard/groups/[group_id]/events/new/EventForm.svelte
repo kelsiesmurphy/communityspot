@@ -18,11 +18,19 @@
 	} from '@internationalized/date';
 	import { CalendarIcon } from 'lucide-svelte';
 	import { Calendar } from '$lib/components/ui/calendar';
+	import { toast } from 'svelte-sonner';
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
 		validators: zodClient(formSchema),
+		onUpdated: ({ form }) => {
+			if (form.valid) {
+				toast.success('Your event has been created!');
+			} else {
+				toast.error('Please fix the errors in the form.');
+			}
+		}
 	});
 
 	const df = new DateFormatter('en-US', {
@@ -107,14 +115,14 @@
 		<Form.Description>This is the end time of your event.</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Field {form} name="image">
+	<!-- <Form.Field {form} name="image">
 		<Form.Control let:attrs>
 			<Form.Label>Image</Form.Label>
 			<Input type="file" {...attrs} bind:value={$formData.image} />
 		</Form.Control>
 		<Form.Description>This is an image for your event.</Form.Description>
 		<Form.FieldErrors />
-	</Form.Field>
+	</Form.Field> -->
 	<Form.Button>Submit</Form.Button>
 </form>
 

@@ -7,8 +7,8 @@ export const formSchema = z.object({
 	start_time: z.string().refine((v) => v, { message: 'A start time is required.' }),
 	end_time: z.string().refine((v) => v, { message: 'An end time is required.' }),
 	venue: z.string(),
-	image: z.string(),
-	image_alt: z.string()
+	// image: z.string(),
+	// image_alt: z.string()
 });
 
 export type FormSchema = typeof formSchema;
