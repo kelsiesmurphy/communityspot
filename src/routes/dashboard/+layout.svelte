@@ -4,12 +4,8 @@
 
 	const sidebarNavItems = [
 		{
-			title: 'Events',
-			href: '/dashboard'
-		},
-		{
 			title: 'Groups',
-			href: '/dashboard/groups'
+			href: '/dashboard'
 		},
 		{
 			title: 'Profile',

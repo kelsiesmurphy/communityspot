@@ -16,7 +16,7 @@
 			<Tabs.Trigger value="hosting">Hosting</Tabs.Trigger>
 		</Tabs.List>
 		<div class="ml-auto mr-4">
-			<Button href="/dashboard/events/new">
+			<Button href={`/dashboard/groups/${data.group.id}/events/new`}>
 				<PlusCircle class="mr-2 h-4 w-4" />
 				Create Event
 			</Button>

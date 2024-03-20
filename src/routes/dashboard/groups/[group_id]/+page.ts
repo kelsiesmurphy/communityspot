@@ -1,5 +1,11 @@
-export const load = async ({ parent }) => {
+export const load = async ({ parent, params }) => {
 	const { supabase, session } = await parent();
+
+	const { data: group } = await supabase
+		.from('groups')
+		.select('*')
+		.eq('id', params.group_id)
+		.maybeSingle();
 
 	const userId = session?.user?.id;
 
@@ -39,6 +45,7 @@ export const load = async ({ parent }) => {
 	}
 
 	return {
+		group,
 		attendingEvents,
 		hostingEvents
 	};

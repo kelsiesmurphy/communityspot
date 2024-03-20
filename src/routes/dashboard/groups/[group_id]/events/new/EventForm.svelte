@@ -5,13 +5,34 @@
 	import { formSchema, type FormSchema } from './schema';
 	import { type SuperValidated, type Infer, superForm } from 'sveltekit-superforms';
 	import { zodClient } from 'sveltekit-superforms/adapters';
-	import DateRangePicker from './DateRangePicker.svelte';
+	import * as Popover from '$lib/components/ui/popover/index.js';
+	import SuperDebug from 'sveltekit-superforms';
+	import { buttonVariants } from '$lib/components/ui/button';
+	import { cn } from '$lib/utils';
+	import {
+		DateFormatter,
+		getLocalTimeZone,
+		today,
+		type DateValue,
+		parseDate
+	} from '@internationalized/date';
+	import { CalendarIcon } from 'lucide-svelte';
+	import { Calendar } from '$lib/components/ui/calendar';
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
 	const form = superForm(data, {
-		validators: zodClient(formSchema)
+		validators: zodClient(formSchema),
 	});
+
+	const df = new DateFormatter('en-US', {
+		dateStyle: 'long'
+	});
+
+	let value: DateValue | undefined;
+	$: value = $formData.date ? parseDate($formData.date) : undefined;
+
+	let placeholder: DateValue = today(getLocalTimeZone());
 
 	const { form: formData, enhance } = form;
 </script>
@@ -33,14 +54,42 @@
 		<Form.Description>This is the description of your event.</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
-	<Form.Field {form} name="date_range">
+	<Form.Field {form} name="date" class="flex flex-col">
 		<Form.Control let:attrs>
-			<Form.Label>Start Time</Form.Label>
-			<DateRangePicker />
-			<!-- <Input type="time" {...attrs} bind:value={$formData.date_range} /> -->
+			<Form.Label>Date</Form.Label>
+			<Popover.Root>
+				<Popover.Trigger
+					{...attrs}
+					class={cn(
+						buttonVariants({ variant: 'outline' }),
+						'justify-start pl-4 text-left font-normal',
+						!value && 'text-muted-foreground'
+					)}
+				>
+					{value ? df.format(value.toDate(getLocalTimeZone())) : 'Pick a date'}
+					<CalendarIcon class="ml-auto h-4 w-4 opacity-50" />
+				</Popover.Trigger>
+				<Popover.Content class="w-auto p-0" side="top">
+					<Calendar
+						{value}
+						bind:placeholder
+						minValue={today(getLocalTimeZone())}
+						calendarLabel="Date of birth"
+						initialFocus
+						onValueChange={(v) => {
+							if (v) {
+								$formData.date = v.toString();
+							} else {
+								$formData.date = '';
+							}
+						}}
+					/>
+				</Popover.Content>
+			</Popover.Root>
+			<Form.Description>The date of your event</Form.Description>
+			<Form.FieldErrors />
+			<input hidden value={$formData.date} name={attrs.name} />
 		</Form.Control>
-		<Form.Description>This is the date(s) of your event.</Form.Description>
-		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="start_time">
 		<Form.Control let:attrs>
@@ -68,3 +117,5 @@
 	</Form.Field>
 	<Form.Button>Submit</Form.Button>
 </form>
+
+<SuperDebug data={$formData} />
