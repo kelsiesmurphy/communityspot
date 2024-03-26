@@ -4,8 +4,9 @@ import { getURL } from '$lib/utils/helpers';
 
 export async function POST({ request, locals: { getSession } }) {
 	if (request.method === 'POST') {
-		// 1. Destructure the price and quantity from the POST body
-		const { price, quantity = 1, metadata = {} } = await request.json();
+		// 1. Destructure the price, group_id and quantity from the POST body
+		const { price, group_id, quantity = 1 } = await request.json();
+		const newMetadata = { group_id: group_id || null };
 
 		try {
 			// 2. Get the user session from Supabase auth
@@ -35,7 +36,7 @@ export async function POST({ request, locals: { getSession } }) {
 					allow_promotion_codes: true,
 					subscription_data: {
 						trial_from_plan: true,
-						metadata
+						metadata: newMetadata
 					},
 					success_url: `${getURL()}profile`,
 					cancel_url: `${getURL()}`

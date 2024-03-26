@@ -16,7 +16,7 @@
 			<Tabs.Trigger value="admin">Admin</Tabs.Trigger>
 		</Tabs.List>
 		<div class="ml-auto mr-4">
-			<Button>
+			<Button href={`/dashboard/groups/new`}>
 				<PlusCircle class="mr-2 h-4 w-4" />
 				Create Group
 			</Button>
