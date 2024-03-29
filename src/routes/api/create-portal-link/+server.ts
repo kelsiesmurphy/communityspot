@@ -16,14 +16,15 @@ export async function POST({ request, locals: { getSession } }) {
 			if (!customer) throw Error('Could not get customer');
 			const { url } = await stripe.billingPortal.sessions.create({
 				customer,
-				return_url: `${getURL()}profile`
+				return_url: `${getURL()}dashboard`
 			});
 			return new Response(JSON.stringify({ url }), {
 				status: 200
 			});
 		} catch (err) {
+			const error = err as Error;
 			console.log(err);
-			return new Response(JSON.stringify({ error: { statusCode: 500, message: err.message } }), {
+			return new Response(JSON.stringify({ error: { statusCode: 500, message: error.message } }), {
 				status: 500
 			});
 		}

@@ -32,12 +32,15 @@ export async function POST({ request }: RequestEvent) {
 		if (!sig || !webhookSecret) return;
 		event = stripe.webhooks.constructEvent(body, sig, webhookSecret);
 	} catch (err) {
-		console.log(`❌ Error message: ${err.message}`);
-		return new Response(`Webhook Error: ${err.message}`, { status: 400 });
+		const error = err as Error;
+		console.log(`❌ Error message: ${error.message}`);
+		return new Response(`Webhook Error: ${error.message}`, { status: 400 });
 	}
 
 	if (relevantEvents.has(event.type)) {
 		try {
+			const subscription = event.data.object as Stripe.Subscription;
+			const checkoutSession = event.data.object as Stripe.Checkout.Session;
 			switch (event.type) {
 				case 'product.created':
 				case 'product.updated':
@@ -50,7 +53,6 @@ export async function POST({ request }: RequestEvent) {
 				case 'customer.subscription.created':
 				case 'customer.subscription.updated':
 				case 'customer.subscription.deleted':
-					const subscription = event.data.object as Stripe.Subscription;
 					await manageSubscriptionStatusChange(
 						subscription.id,
 						subscription.customer as string,
@@ -58,7 +60,6 @@ export async function POST({ request }: RequestEvent) {
 					);
 					break;
 				case 'checkout.session.completed':
-					const checkoutSession = event.data.object as Stripe.Checkout.Session;
 					if (checkoutSession.mode === 'subscription') {
 						const subscriptionId = checkoutSession.subscription;
 						await manageSubscriptionStatusChange(

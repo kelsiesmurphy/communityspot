@@ -29,7 +29,7 @@
 	const createDraftGroup = async (name: string, description: string) => {
 		const { data: group, error } = await data.supabase
 			.from('groups')
-			.insert([{ name: name, slug: "test", description: description }])
+			.insert([{ name: name, slug: "test", description: description, isDraft: true }])
 			.select();
 
 		if (error) {
@@ -74,6 +74,14 @@
 			<Input {...attrs} bind:value={$formData.name} />
 		</Form.Control>
 		<Form.Description>This is the name of your group.</Form.Description>
+		<Form.FieldErrors />
+	</Form.Field>
+	<Form.Field {form} name="slug">
+		<Form.Control let:attrs>
+			<Form.Label>Slug</Form.Label>
+			<Input {...attrs} bind:value={$formData.slug} />
+		</Form.Control>
+		<Form.Description>This is the unique URL name of your group.</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
 	<Form.Field {form} name="description">

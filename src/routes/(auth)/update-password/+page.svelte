@@ -24,7 +24,7 @@
 			});
 			if (error) throw error;
 			toast.success('Your password has been updated!');
-			goto('/profile');
+			goto('/dashboard');
 		} catch (error) {
 			if (error instanceof Error) {
 				alert(error.message);

@@ -27,8 +27,8 @@
 				{#each [...navigationItems.values()] as value}
 					<Button href={value.link} variant="ghost" class="w-full">{value.title}</Button>
 				{/each}
-				<Button class="w-full" href={session ? '/profile' : '/signin'}
-					>{session ? 'Profile' : 'Sign In'}</Button
+				<Button class="w-full" href={session ? '/dashboard' : '/signin'}
+					>{session ? 'Dashboard' : 'Sign In'}</Button
 				>
 				{#if session}
 					<Button class="w-full" variant="outline" on:click={handleSignOut}>Sign Out</Button>

@@ -38,12 +38,12 @@
 			goto('/signin');
 		}
 		if (subscription) {
-			goto('/profile');
+			goto('/dashboard');
 		}
 		try {
 			const { sessionId } = await postData({
 				url: '/api/stripe-checkout',
-				data: { price }
+				data: { price, group_id: "" }
 			});
 			const stripe = await getStripe();
 			stripe?.redirectToCheckout({ sessionId });
@@ -85,7 +85,7 @@
 								</Card.Content>
 								<Card.Footer>
 									{#if subscription}
-										<Button class="btn variant-filled-primary" href="/profile"
+										<Button class="btn variant-filled-primary" href="/dashboard/settings"
 											>Manage subscription</Button
 										>
 									{:else}

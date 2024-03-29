@@ -35,10 +35,9 @@ export async function POST({ request, locals: { getSession } }) {
 					mode: 'subscription',
 					allow_promotion_codes: true,
 					subscription_data: {
-						trial_from_plan: true,
 						metadata: newMetadata
 					},
-					success_url: `${getURL()}profile`,
+					success_url: `${getURL()}dashboard`,
 					cancel_url: `${getURL()}`
 				});
 			} else if (price.type === 'one_time') {
@@ -57,7 +56,7 @@ export async function POST({ request, locals: { getSession } }) {
 					],
 					mode: 'payment',
 					allow_promotion_codes: true,
-					success_url: `${getURL()}profile`,
+					success_url: `${getURL()}dashboard`,
 					cancel_url: `${getURL()}`
 				});
 			}
