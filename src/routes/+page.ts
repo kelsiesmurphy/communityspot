@@ -3,7 +3,12 @@ export const load = async ({ parent }) => {
 
 	const { data: events } = await supabase
 		.from('events')
-		.select('*')
+		.select(
+			`*, groups!inner(
+            isDraft
+        )`
+		)
+		.eq('groups.isDraft', false);
 
 	return {
 		events

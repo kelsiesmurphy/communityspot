@@ -18,6 +18,7 @@ export const load = async ({ parent }) => {
         )`
 		)
 		.eq('group_members.user_id', userId)
+		.eq('isDraft', false)
 		.eq('group_members.role', 'admin');
 
 	const { data: memberGroups, error: memberError } = await supabase
@@ -28,6 +29,7 @@ export const load = async ({ parent }) => {
         )`
 		)
 		.eq('group_members.user_id', userId)
+		.eq('isDraft', false)
 		.eq('group_members.role', 'member');
 
 	if (adminError || memberError) {

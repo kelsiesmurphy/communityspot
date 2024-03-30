@@ -8,7 +8,7 @@
 <ul class="flex flex-col gap-6">
 	{#each adminGroups as group}
 		<li class="flex-1 flex">
-			<h3>{group.name}</h3>
+			<a href={`/dashboard/groups/${group.id}`}>{group.name}</a>
 		</li>
 	{/each}
 </ul>

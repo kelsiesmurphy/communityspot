@@ -25,6 +25,19 @@
 		return price;
 	};
 
+	const createGroupMember = async (group) => {
+		const { data: groupMember, error } = await data.supabase
+			.from('group_members')
+			.insert([{ group_id: group.id, user_id: data.session?.user.id, role: "admin" }])
+			.select();
+
+		if (error) {
+			console.error(error);
+		}
+		console.log(groupMember)
+		handleCheckout(group)
+	};
+
 	const createDraftGroup = async (name: string, slug:string, description: string) => {
 		const { data: group, error } = await data.supabase
 			.from('groups')
@@ -34,7 +47,7 @@
 		if (error) {
 			console.error(error);
 		}
-		handleCheckout(group)
+		createGroupMember(group?.[0])
 	};
 
 	const handleCheckout = async (group) => {
@@ -42,7 +55,7 @@
 		try {
 			const { sessionId } = await postData({
 				url: '/api/stripe-checkout',
-				data: { price, group_id: group[0].id }
+				data: { price, group_id: group.id }
 			});
 			const stripe = await getStripe();
 			stripe?.redirectToCheckout({ sessionId });
