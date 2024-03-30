@@ -25,11 +25,10 @@
 		return price;
 	};
 
-	// TODO: Error getting ID
-	const createDraftGroup = async (name: string, description: string) => {
+	const createDraftGroup = async (name: string, slug:string, description: string) => {
 		const { data: group, error } = await data.supabase
 			.from('groups')
-			.insert([{ name: name, slug: "test", description: description, isDraft: true }])
+			.insert([{ name: name, slug: slug, description: description, isDraft: true }])
 			.select();
 
 		if (error) {
@@ -56,7 +55,7 @@
 		validators: zodClient(formSchema),
 		onUpdated: ({ form }) => {
 			if (form.valid) {
-				createDraftGroup(form.data.name, form.data.description);
+				createDraftGroup(form.data.name, form.data.slug, form.data.description);
 				toast.success('Your event has been created!');
 			} else {
 				toast.error('Please fix the errors in the form.');

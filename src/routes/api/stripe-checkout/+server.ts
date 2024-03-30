@@ -37,7 +37,7 @@ export async function POST({ request, locals: { getSession } }) {
 					subscription_data: {
 						metadata: newMetadata
 					},
-					success_url: `${getURL()}dashboard`,
+					success_url: `${getURL()}api/stripe-checkout/success/${group_id}`,
 					cancel_url: `${getURL()}`
 				});
 			} else if (price.type === 'one_time') {
@@ -56,7 +56,7 @@ export async function POST({ request, locals: { getSession } }) {
 					],
 					mode: 'payment',
 					allow_promotion_codes: true,
-					success_url: `${getURL()}dashboard`,
+					success_url: `${getURL()}api/stripe-checkout/success/${group_id}`,
 					cancel_url: `${getURL()}`
 				});
 			}

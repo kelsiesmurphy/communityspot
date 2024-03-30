@@ -3,11 +3,8 @@
 	import * as Card from '$lib/components/ui/card';
 	import { Button } from '$lib/components/ui/button';
 	import { goto } from '$app/navigation';
-	import { getStripe } from '$lib/stripe/stripe-client';
-	import { postData } from '$lib/utils/helpers';
-	import type { Session } from '@supabase/supabase-js';
 
-	export let products, subscription, session: Session | null;
+	export let products;
 
 	const billingIntervals = [
 		{ interval: 'month', title: 'Monthly' },
@@ -18,7 +15,7 @@
 		const price = product?.prices?.find((price) => price.interval === billingInterval.interval);
 		if (!price) return null;
 
-		const priceString = new Intl.NumberFormat('en-US', {
+		const priceString = new Intl.NumberFormat('en-GB', {
 			style: 'currency',
 			currency: price.currency!,
 			minimumFractionDigits: 0
@@ -35,13 +32,13 @@
 
 <Tabs.Root value="month">
 	<div class="flex flex-col items-center">
-		<div class="w-full flex-1 max-w-sm">
+		<!-- <div class="w-full flex-1 max-w-sm">
 			<Tabs.List class="grid grid-cols-2">
 				{#each billingIntervals as billingInterval}
 					<Tabs.Trigger value={billingInterval.interval}>{billingInterval.title}</Tabs.Trigger>
 				{/each}
 			</Tabs.List>
-		</div>
+		</div> -->
 
 		<div class="w-full flex-1 max-w-3xl">
 			{#each billingIntervals as billingInterval}
@@ -68,7 +65,7 @@
 										on:click={() => handleClick(product, billingInterval)}
 										class="btn variant-filled-primary"
 									>
-										Choose Plan
+										Continue
 									</Button>
 								</Card.Footer>
 							</Card.Root>
