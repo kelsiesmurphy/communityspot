@@ -11,6 +11,10 @@
 
 	const navigationItems = [
 		{
+			title: 'Groups',
+			link: '/groups'
+		},
+		{
 			title: 'About Us',
 			link: '/about'
 		}

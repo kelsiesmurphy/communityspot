@@ -3,6 +3,7 @@
     import { toast } from 'svelte-sonner';
     import { writable, get } from 'svelte/store';
     import type { PageData } from './$types';
+	import GroupMembers from './GroupMembers.svelte';
 
     export let data: PageData;
     let { group, session, supabase } = data;
@@ -49,3 +50,5 @@
 <h1>{group.name}</h1>
 <p>{group.description}</p>
 <Button on:click={handleJoinGroup} disabled={$isGroupMember}>Join Group</Button>
+
+<GroupMembers {data}/>
