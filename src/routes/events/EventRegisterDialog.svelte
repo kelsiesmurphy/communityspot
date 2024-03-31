@@ -34,7 +34,7 @@
         if (error) {
             console.log('Error: ' + error);
         }
-		handleFormSubmit(group_member[0])
+		handleFormSubmit(group_member)
     }
 </script>
 
