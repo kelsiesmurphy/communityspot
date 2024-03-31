@@ -1,6 +1,5 @@
 <script lang="ts">
 	import EventRegisterDialog from '../EventRegisterDialog.svelte';
-	import { Button } from '$lib/components/ui/button';
 	import type { PageData } from './$types';
 
 	export let data: PageData;

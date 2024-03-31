@@ -14,17 +14,28 @@
 	export let session: Session | null;
 	export let supabase: SupabaseClient;
 
-	const handleFormSubmit = async () => {
-		const { data, error } = await supabase
+	const handleFormSubmit = async (group_member) => {
+		const { error } = await supabase
 			.from('attendees')
-			.insert([{ event_id: event.id, user_id: session?.user.id }])
-			.select();
+			.insert([{ event_id: event.id, group_member_id: group_member.id }])
 		if (error) {
 			console.log('Error: ' + error);
 		}
 		toast.success(`You are signed up to ${event.title}!`);
 		goto('/dashboard');
 	};
+
+	const handleJoinGroup = async () => {
+        const { data: group_member, error } = await supabase
+            .from('group_members')
+            .insert([{ group_id: event.group_id, user_id: session?.user.id }])
+            .select()
+			.maybeSingle();
+        if (error) {
+            console.log('Error: ' + error);
+        }
+		handleFormSubmit(group_member[0])
+    }
 </script>
 
 <Dialog.Root>
@@ -47,7 +58,7 @@
 			</div>
 		</div>
 		<Dialog.Footer>
-			<Button type="submit" on:click={handleFormSubmit}>Register</Button>
+			<Button type="submit" on:click={handleJoinGroup}>Join Group and Register</Button>
 		</Dialog.Footer>
 	</Dialog.Content>
 </Dialog.Root>

@@ -6,8 +6,6 @@
 	export let data: PageData;
 	let { session, events } = data;
 	$: ({ session } = data);
-
-	console.log(events)
 </script>
 
 <svelte:head>

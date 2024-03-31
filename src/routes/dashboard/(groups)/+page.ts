@@ -14,7 +14,7 @@ export const load = async ({ parent }) => {
 		.from('groups')
 		.select(
 			`*, group_members!inner(
-            user_id, group_id
+            id, user_id, group_id
         )`
 		)
 		.eq('group_members.user_id', userId)
@@ -25,7 +25,7 @@ export const load = async ({ parent }) => {
 		.from('groups')
 		.select(
 			`*, group_members!inner(
-            user_id, group_id
+            id, user_id, group_id
         )`
 		)
 		.eq('group_members.user_id', userId)

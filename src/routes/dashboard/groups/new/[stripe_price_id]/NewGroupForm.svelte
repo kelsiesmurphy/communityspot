@@ -34,7 +34,6 @@
 		if (error) {
 			console.error(error);
 		}
-		console.log(groupMember)
 		handleCheckout(group)
 	};
 

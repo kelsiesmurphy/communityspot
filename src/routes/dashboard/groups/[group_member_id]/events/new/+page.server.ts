@@ -12,7 +12,7 @@ export const load: PageServerLoad = async () => {
 
 export const actions: Actions = {
 	default: async (event) => {
-		const { group_id } = event.params;
+		const { group_member_id } = event.params;
 		const form = await superValidate(event, zod(formSchema));
 		if (!form.valid) {
 			return fail(400, {
@@ -34,11 +34,19 @@ export const actions: Actions = {
 		// 		upsert: false
 		// 	});
 
-		const { error } = await event.locals.supabase
+		const { data: groupId, error: groupMembersError } = await event.locals.supabase
+			.from('group_members')
+			.select('group_id')
+			.eq('id', group_member_id);
+		if (groupMembersError) {
+			setError(form, groupMembersError.message, { status: 500 });
+		}
+
+		const { data: newEvent, error } = await event.locals.supabase
 			.from('events')
 			.insert([
 				{
-					group_id: group_id,
+					group_id: groupId?.[0],
 					title: title,
 					description: description,
 					date_start: date_start,
@@ -48,6 +56,21 @@ export const actions: Actions = {
 			.select();
 		if (error) {
 			setError(form, error.message, { status: 500 });
+		}
+
+		const { error: attendeeError } = await event.locals.supabase
+			.from('attendees')
+			.insert([
+				{
+					event_id: newEvent?.[0].id,
+					group_member_id: group_member_id,
+					hosting: true
+				}
+			])
+			.select();
+
+		if (attendeeError) {
+			setError(form, attendeeError.message, { status: 500 });
 		}
 		return { form };
 	}
