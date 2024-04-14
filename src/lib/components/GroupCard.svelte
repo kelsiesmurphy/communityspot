@@ -9,11 +9,10 @@
 	type Group = Database['public']['Tables']['groups']['Row'];
 
 	export let group: Group;
-	export let session: Session | null;
 </script>
 
 <button
-	on:click={() => goto(session ? `/groups/${group.id}` : '/signin')}
+	on:click={() => goto(`/groups/${group.id}`)}
 	class="flex-1 flex rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
 	<Card.Root class="flex-1 h-full flex flex-col gap-2 text-left">

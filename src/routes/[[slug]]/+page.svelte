@@ -3,6 +3,8 @@
 	import type { PageData } from './$types';
 	import Hero from '$lib/components/(index)/Hero.svelte';
 	import ScrollCategories from '$lib/components/(index)/ScrollCategories.svelte';
+	import Button from '$lib/components/ui/button/button.svelte';
+	import { Plus, FolderX } from "lucide-svelte"
 
 	export let data: PageData;
 	let { session, groups, categories } = data;
@@ -20,8 +22,20 @@
 	<ul class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
 		{#each groups ?? [] as group}
 			<li class="flex">
-					<GroupCard {session} {group} />
+				<GroupCard {session} {group} />
 			</li>
 		{/each}
 	</ul>
+	{#if groups?.length === 0}
+		<div class="flex-1 min-h-64 flex justify-center py-4">
+			<div class="text-center space-y-6">
+				<FolderX class="h-10 w-10 m-auto text-muted-foreground"/>
+				<div>
+					<h3 class="font-medium">No Groups Found</h3>
+					<p class=" text-muted-foreground">Would you like to create one?</p>
+				</div>
+				<Button><Plus class="mr-2 h-4 w-4" />Create a group</Button>
+			</div>
+		</div>
+	{/if}
 </section>

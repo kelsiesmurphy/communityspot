@@ -10,9 +10,9 @@ export const load = async ({ parent, params }) => {
 			)`
 		)
 		.eq('group_categories.category_slug', params.slug ?? 'professional-networking')
-		.eq('isDraft', false);
+		.eq('isDraft', false)
 
-	const { data: categories } = await supabase.from('categories').select('*');
+	const { data: categories } = await supabase.from('categories').select('*').order('name', { ascending: true });
 
 	return {
 		slug: params.slug,
