@@ -5,7 +5,6 @@
 	import { goto } from '$app/navigation';
 	import type { Session } from '@supabase/supabase-js';
 	import { Calendar, ChevronRight, Clock, MapPin } from 'lucide-svelte';
-	import Separator from './ui/separator/separator.svelte';
 
 	type Event = Database['public']['Tables']['events']['Row'];
 
