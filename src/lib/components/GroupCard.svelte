@@ -4,6 +4,7 @@
 	import type { Database } from '$lib/supabase/types_db';
 	import { goto } from '$app/navigation';
 	import type { Session } from '@supabase/supabase-js';
+	import AvatarGroup from './AvatarGroup.svelte';
 
 	type Group = Database['public']['Tables']['groups']['Row'];
 
@@ -19,8 +20,11 @@
 		<Card.Header>
 			<Card.Title>{group.name}</Card.Title>
 		</Card.Header>
-		<Card.Content>
+		<Card.Content class="flex-1">
 			<Card.Description>{group.description}</Card.Description>
 		</Card.Content>
+		<Card.Footer>
+			<AvatarGroup />
+		</Card.Footer>
 	</Card.Root>
 </button>

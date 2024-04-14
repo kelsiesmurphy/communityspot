@@ -8,7 +8,7 @@
 
 <div class="py-8">
     <ScrollArea orientation="horizontal" class="scroll-smooth overflow-x-auto">
-        <div class="flex gap-14 p-4 pr-16">
+        <div class="flex gap-8 p-4 pr-16">
             {#each categories as category (category.name)}
                 <CategoryTab {category} />
             {/each}

@@ -20,7 +20,7 @@
 		Skip Navigation
 	</Button>
 	<div class="flex-1 flex items-center gap-4">
-		<Button variant="link" href="/" class="p-4"><Logomark /></Button>
+		<Button variant="link" href="/"><Logomark /></Button>
 		<ul class="hidden sm:flex">
 			{#each [...navigationItems.values()] as value}
 				<li>

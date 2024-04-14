@@ -2,50 +2,52 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-	--background: 136 0% 100%;
-	--foreground: 136 0% 10%;
-	--card: 136 0% 100%;
-	--card-foreground: 136 0% 15%;
-	--popover: 136 0% 100%;
-	--popover-foreground: 136 95% 10%;
-	--primary: 136 37.8% 41%;
+
+:root  {
+	--background: 163 81% 100%;
+	--foreground: 163 5% 10%;
+	--card: 163 50% 100%;
+	--card-foreground: 163 5% 15%;
+	--popover: 163 81% 100%;
+	--popover-foreground: 163 95% 10%;
+	--primary: 163 93.5% 24.3%;
 	--primary-foreground: 0 0% 100%;
-	--secondary: 136 10% 90%;
+	--secondary: 163 30% 90%;
 	--secondary-foreground: 0 0% 0%;
-	--muted: 98 10% 95%;
-	--muted-foreground: 136 0% 40%;
-	--accent: 98 10% 90%;
-	--accent-foreground: 136 0% 15%;
-	--destructive: 0 50% 50%;
-	--destructive-foreground: 136 0% 100%;
-	--border: 136 20% 82%;
-	--input: 136 20% 50%;
-	--ring: 136 37.8% 41%;
-	--radius: 0.5rem;
-}
-.dark {
-	--background: 136 10% 10%;
-	--foreground: 136 0% 100%;
-	--card: 136 0% 10%;
-	--card-foreground: 136 0% 100%;
-	--popover: 136 10% 5%;
-	--popover-foreground: 136 0% 100%;
-	--primary: 136 37.8% 41%;
+	--muted: 125 30% 95%;
+	--muted-foreground: 163 5% 40%;
+	--accent: 125 30% 90%;
+	--accent-foreground: 163 5% 15%;
+	--destructive: 0 81% 50%;
+	--destructive-foreground: 163 5% 100%;
+	--border: 163 30% 82%;
+	--input: 163 30% 50%;
+	--ring: 163 93.5% 24.3%;
+	--radius: 1rem;
+  }
+  .dark  {
+	--background: 163 50% 10%;
+	--foreground: 163 5% 100%;
+	--card: 163 50% 10%;
+	--card-foreground: 163 5% 100%;
+	--popover: 163 50% 5%;
+	--popover-foreground: 163 5% 100%;
+	--primary: 163 93.5% 24.3%;
 	--primary-foreground: 0 0% 100%;
-	--secondary: 136 10% 20%;
+	--secondary: 163 30% 20%;
 	--secondary-foreground: 0 0% 100%;
-	--muted: 98 10% 25%;
-	--muted-foreground: 136 0% 65%;
-	--accent: 98 10% 25%;
-	--accent-foreground: 136 0% 95%;
-	--destructive: 0 50% 50%;
-	--destructive-foreground: 136 0% 100%;
-	--border: 136 20% 50%;
-	--input: 136 20% 50%;
-	--ring: 136 37.8% 41%;
-	--radius: 0.5rem;
-}
+	--muted: 125 30% 25%;
+	--muted-foreground: 163 5% 65%;
+	--accent: 125 30% 25%;
+	--accent-foreground: 163 5% 95%;
+	--destructive: 0 81% 50%;
+	--destructive-foreground: 163 5% 100%;
+	--border: 163 30% 50%;
+	--input: 163 30% 50%;
+	--ring: 163 93.5% 24.3%;
+	--radius: 1rem;
+  }
+  
 
 .gradient-right {
 	position: absolute;
@@ -53,7 +55,7 @@
 	right: 0;
 	height: 100%;
 	width: 60px;
-	background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+	background: linear-gradient(to right, rgba(255, 255, 255, 0), var(--background));
 }
 
 @layer base {

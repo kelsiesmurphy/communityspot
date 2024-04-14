@@ -61,6 +61,7 @@ const config: import('tailwindcss').Config = {
 			fontFamily: {
 				sans: [...fontFamily.sans],
 				sora: ['Sora', 'sans-serif'],
+				inter: ['Inter', 'sans-serif'],
 			}
 		}
 	}
