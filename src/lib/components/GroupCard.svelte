@@ -5,6 +5,7 @@
 	import { goto } from '$app/navigation';
 	import type { Session } from '@supabase/supabase-js';
 	import AvatarGroup from './AvatarGroup.svelte';
+	import Graphic from '$lib/assets/Graphic.svg';
 
 	type Group = Database['public']['Tables']['groups']['Row'];
 
@@ -12,15 +13,16 @@
 </script>
 
 <button
-	on:click={() => goto(`/groups/${group.id}`)}
+	on:click={() => goto(`/groups/${group.slug}`)}
 	class="flex-1 flex rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
-	<Card.Root class="flex-1 h-full flex flex-col gap-2 text-left">
-		<Card.Header>
-			<Card.Title>{group.name}</Card.Title>
+<Card.Root class="flex-1 h-full flex flex-col gap-2 text-left shadow-lg hover:shadow-2xl hover:-translate-y-1 duration-300 transition-all">
+		<Card.Header class="flex items-center">
+			<img src={Graphic} alt={`Cover image for ${group.name}`}/>
 		</Card.Header>
-		<Card.Content class="flex-1">
-			<Card.Description>{group.description}</Card.Description>
+		<Card.Content class="flex-1 space-y-2">
+			<Card.Title>{group.name}</Card.Title>
+			<Card.Description class="line-clamp-2">{group.description}</Card.Description>
 		</Card.Content>
 		<Card.Footer>
 			<AvatarGroup />

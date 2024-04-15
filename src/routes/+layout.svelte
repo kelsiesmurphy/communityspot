@@ -32,7 +32,7 @@
 
 <ModeWatcher />
 <Toaster theme={$mode} />
-<div class="min-h-screen flex flex-col font-inter">
+<div class="min-h-screen flex flex-col font-inter bg-repeat" style={`background-image: url(/pattern.svg)`}>
 	<Navigation {session} {supabase} />
 	<div id="main-content" class="flex-1">
 		<slot />

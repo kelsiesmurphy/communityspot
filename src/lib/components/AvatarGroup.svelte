@@ -18,7 +18,7 @@
 
 <div class="flex -space-x-2">
     {#each groupMembersFirst6 as member}
-        <Avatar.Root>
+        <Avatar.Root class="border-2 border-background">
             <Avatar.Image src={`https://i.pravatar.cc/150?img=${Math.floor(Math.random() * 70) + 1}`} alt="@shadcn" />
             <Avatar.Fallback>{member}</Avatar.Fallback>
         </Avatar.Root>
