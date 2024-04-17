@@ -8,7 +8,6 @@
 	import { onMount } from 'svelte';
 
 	import Navigation from '$lib/components/(navigation)/Navigation.svelte';
-	import Footer from '$lib/components/(navigation)/Footer.svelte';
 	import { ModeWatcher, mode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 
@@ -34,8 +33,7 @@
 <Toaster theme={$mode} />
 <div class="min-h-screen flex flex-col font-inter bg-repeat" style={`background-image: url(/pattern.svg)`}>
 	<Navigation {session} {supabase} />
-	<div id="main-content" class="flex-1">
+	<div id="main-content" class="flex-1 flex">
 		<slot />
 	</div>
-	<Footer />
 </div>

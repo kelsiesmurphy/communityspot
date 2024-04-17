@@ -9,7 +9,7 @@ export const load = async ({ parent, params }) => {
 				id, category_slug, group_id
 			)`
 		)
-		.eq('group_categories.category_slug', params.slug ?? 'professional-networking')
+		.eq('group_categories.category_slug', params.slug ?? 'arts-and-culture')
 		.eq('isDraft', false)
 
 	const { data: categories } = await supabase.from('categories').select('*').order('name', { ascending: true });

@@ -3,10 +3,8 @@
 
 	import type { Database } from '$lib/supabase/types_db';
 	import { goto } from '$app/navigation';
-	import type { Session } from '@supabase/supabase-js';
 	import AvatarGroup from './AvatarGroup.svelte';
-	import Graphic from '$lib/assets/Graphic.svg';
-
+	import { mode } from 'mode-watcher';
 	type Group = Database['public']['Tables']['groups']['Row'];
 
 	export let group: Group;
@@ -18,7 +16,7 @@
 >
 <Card.Root class="flex-1 h-full flex flex-col gap-2 text-left shadow-lg hover:shadow-2xl hover:-translate-y-1 duration-300 transition-all">
 		<Card.Header class="flex items-center">
-			<img src={Graphic} alt={`Cover image for ${group.name}`}/>
+			<img src={group.image && group.image} alt={`Cover image for ${group.name}`} class={$mode === "dark" ? "invert": ""}/>
 		</Card.Header>
 		<Card.Content class="flex-1 space-y-2">
 			<Card.Title>{group.name}</Card.Title>

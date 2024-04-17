@@ -16,8 +16,8 @@
 		easing: cubicInOut
 	});
 </script>
-
-<ScrollArea orientation="horizontal" class="scroll-smooth overflow-x-auto">
+	
+<ScrollArea type="scroll" orientation="horizontal" class="scroll-smooth overflow-x-auto">
 	<div class={cn('flex gap-8 p-4 pr-16', className)}>
 		{#each categories as category (category.name)}
 			{@const isActive = $page.params.slug === category.slug}

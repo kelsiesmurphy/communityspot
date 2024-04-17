@@ -5,6 +5,7 @@
 	import ScrollCategories from '$lib/components/(index)/ScrollCategories.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Plus, FolderX } from "lucide-svelte"
+	import Footer from '$lib/components/(navigation)/Footer.svelte';
 
 	export let data: PageData;
 	let { session, groups, categories } = data;
@@ -38,4 +39,5 @@
 			</div>
 		</div>
 	{/if}
+	<Footer />
 </section>
