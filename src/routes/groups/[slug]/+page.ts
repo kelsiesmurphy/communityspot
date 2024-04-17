@@ -14,8 +14,14 @@ export const load: PageLoad = async ({ parent, params }) => {
 		.select(`*, users!inner(*)`)
 		.eq('group_id', group.id)
 
+	const { data: events } = await supabase
+		.from('events')
+		.select('*')
+
+
 	return {
 		group,
-		groupMembers
+		groupMembers,
+		events
 	};
 };

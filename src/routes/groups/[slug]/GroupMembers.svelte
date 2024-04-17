@@ -1,11 +1,8 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
-	export let data: PageData;
-	let { groupMembers }:any = data;
+	export let groupMembers;
 </script>
 
-<h2>Group Members</h2>
+<h2 class="text-xl font-medium">Group Members</h2>
 
 {#each groupMembers as member}
 	<p>{member.users.full_name}</p>
