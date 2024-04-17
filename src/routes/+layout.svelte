@@ -7,7 +7,6 @@
 	import { invalidate } from '$app/navigation';
 	import { onMount } from 'svelte';
 
-	import Navigation from '$lib/components/(navigation)/Navigation.svelte';
 	import { ModeWatcher, mode } from 'mode-watcher';
 	import { Toaster } from '$lib/components/ui/sonner';
 
@@ -32,8 +31,5 @@
 <ModeWatcher />
 <Toaster theme={$mode} />
 <div class="min-h-screen flex flex-col font-inter bg-repeat" style={`background-image: url(/pattern.svg)`}>
-	<Navigation {session} {supabase} />
-	<div id="main-content" class="flex-1 flex">
-		<slot />
-	</div>
+	<slot />
 </div>
