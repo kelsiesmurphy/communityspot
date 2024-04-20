@@ -5,7 +5,7 @@
 	import type { PageData } from '../$types';
 
     export let data: PageData;
-    let { group, session, supabase } = data;
+    $: ({ group, session, supabase } = data);
 
     const isGroupMember = writable(false);
 
@@ -40,13 +40,15 @@
         if (error) {
             console.log('Error: ' + error);
         }
-        toast.success(`You are signed up to ${group.name}!`);
-        // After successfully joining, update the store
-        isGroupMember.set(true);
+        if (data) {
+            console.log(data)
+            toast.success(`You are signed up to ${group.name}!`);
+            isGroupMember.set(true);
+        }
     }
 </script>
 
-<div class="space-y-6">
+<div class="space-y-6 lg:pt-14">
     <img class="rounded-full border-2 w-36 aspect-square" src="https://static.vecteezy.com/system/resources/thumbnails/007/636/859/small_2x/community-logo-design-free-vector.jpg" alt="group profile"/>
     <h1 class="text-2xl font-semibold">{group.name}</h1>
     <p>{group.description}</p>

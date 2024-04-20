@@ -1,15 +1,29 @@
 <script lang="ts">
-	import Button from "$lib/components/ui/button/button.svelte";
+	// import Button from '$lib/components/ui/button/button.svelte';
 
+	import { ArrowUpRight } from "lucide-svelte";
+
+	export let groupSocial
+
+    const generateStylesForContainer = () => {
+        return `border flex justify-between items-center p-4 space-x-4 rounded-xl border-${groupSocial.social_links.border_colour} bg-${groupSocial.social_links.bg_colour} hover:bg-${groupSocial.social_links.bg_colour}_hover`;
+    };
 </script>
 
-<div class="aspect-square w-48 h-48 border p-4 space-y-4 bg-slate-200/40 border-slate-300 rounded-xl">
-    <div class="w-10 p-2.5 aspect-square rounded-sm shadow-sm bg-slate-950">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/X_logo_2023_original.svg" class="invert" alt="X logo" />
+
+<a
+    href={groupSocial.url}
+    target="_blank"
+    class="border flex justify-between items-center shadow-sm hover:shadow-md p-4 space-x-4 rounded-xl duration-300 transition-shadow"
+    style={`border-color: ${groupSocial.social_links.border_colour}; background-color: ${groupSocial.social_links.bg_colour}`}
+>
+    <div class="space-x-4 flex items-center">
+            <img src={groupSocial.social_links.logo} alt={`logo for ${groupSocial.social_links.name}`} />
+        <div>
+            <p class="text-sm">
+                {groupSocial.social_links.action_word} us at @<span class="text-accent-foreground">{groupSocial.title}</span>
+            </p>
+        </div>
     </div>
-    <div>
-        <p class="text-slate-600 text-sm">Follow us</p>
-        <p class="text-slate-500 text-sm">@lit_lovers_club</p>
-    </div>
-    <Button class="bg-slate-800 hover:bg-slate-900 text-white" size="sm">Follow</Button>
-</div>
+    <ArrowUpRight class="h-4 w-4" />
+</a>

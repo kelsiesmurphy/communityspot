@@ -1,14 +1,14 @@
 <script lang="ts">
     import type { PageData } from './$types';
-	import GroupHeader from './GroupHeader.svelte';
-	import GroupInfo from './GroupInfo.svelte';
+	import GroupHeader from './LeftSide.svelte';
+	import GroupInfo from './RightSide.svelte';
 
     export let data: PageData;
 </script>
 
 
-<section class="container py-12 flex-1 flex flex-col gap-4 lg:flex-row lg:relative">
-    <div class="lg:w-1/2">
+<section class="container py-12 flex-1 flex flex-col gap-6 lg:flex-row lg:relative">
+    <div class="lg:max-w-lg">
         <div class="lg:sticky top-12">
             <GroupHeader {data} />
         </div>
