@@ -1,27 +1,22 @@
 <script lang="ts">
-	// import Button from '$lib/components/ui/button/button.svelte';
-
 	import { ArrowUpRight } from "lucide-svelte";
+    import { mode } from "mode-watcher";
 
 	export let groupSocial
-
-    const generateStylesForContainer = () => {
-        return `border flex justify-between items-center p-4 space-x-4 rounded-xl border-${groupSocial.social_links.border_colour} bg-${groupSocial.social_links.bg_colour} hover:bg-${groupSocial.social_links.bg_colour}_hover`;
-    };
 </script>
 
 
 <a
     href={groupSocial.url}
     target="_blank"
-    class="border flex justify-between items-center shadow-sm hover:shadow-md p-4 space-x-4 rounded-xl duration-300 transition-shadow"
-    style={`border-color: ${groupSocial.social_links.border_colour}; background-color: ${groupSocial.social_links.bg_colour}`}
+    class="border flex justify-between dark:bg-primary items-center shadow-sm hover:shadow-md p-4 bg-opacity-50 space-x-4 rounded-xl duration-300 transition-shadow"
+    style={`border-color: ${$mode === "light" ? groupSocial.social_links.border_colour : groupSocial.social_links.border_colour_dark}; background-color: ${$mode === "light" ? groupSocial.social_links.bg_colour : groupSocial.social_links.bg_colour_dark}`}
 >
     <div class="space-x-4 flex items-center">
-            <img src={groupSocial.social_links.logo} alt={`logo for ${groupSocial.social_links.name}`} />
+            <img src={groupSocial.social_links.logo} alt={`logo for ${groupSocial.social_links.name}`} class={`${groupSocial.social_links.name === 'X' && "dark:invert"}`} />
         <div>
             <p class="text-sm">
-                {groupSocial.social_links.action_word} us at @<span class="text-accent-foreground">{groupSocial.title}</span>
+                {groupSocial.social_links.action_word} us on {groupSocial.social_links.name}
             </p>
         </div>
     </div>

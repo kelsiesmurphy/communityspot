@@ -51,6 +51,6 @@
 <div class="space-y-6 lg:pt-14">
     <img class="rounded-full border-2 w-36 aspect-square" src="https://static.vecteezy.com/system/resources/thumbnails/007/636/859/small_2x/community-logo-design-free-vector.jpg" alt="group profile"/>
     <h1 class="text-2xl font-semibold">{group.name}</h1>
-    <p>{group.description}</p>
-    <Button on:click={handleJoinGroup} disabled={$isGroupMember}>Join Group</Button>
+    <p class="text-secondary-foreground">{group.description}</p>
+    <Button on:click={handleJoinGroup} disabled={$isGroupMember} class="w-full sm:w-fit">Join Group</Button>
 </div>
