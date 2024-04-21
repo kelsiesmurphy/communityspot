@@ -1,6 +1,6 @@
 import { superValidate } from 'sveltekit-superforms';
 import { zod } from 'sveltekit-superforms/adapters';
-import type { PageServerLoad } from '../../$types';
+import type { PageServerLoad } from '../../../$types';
 import { notificationsFormSchema } from './notifications-form.svelte';
 import { fail, type Actions } from '@sveltejs/kit';
 

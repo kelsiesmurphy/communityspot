@@ -1,7 +1,7 @@
 <script lang="ts">
 	import ModeToggle from './ModeToggle.svelte';
 	import { Button } from '../ui/button';
-	import Wordmark from '$lib/assets/Wordmark.svelte';
+	import Logomark from '$lib/assets/Logomark.svelte';
 	import MobileNavigation from './MobileNavigation.svelte';
 	import AvatarDropdown from './AvatarDropdown.svelte';
 	import type { Session, SupabaseClient } from '@supabase/supabase-js';
@@ -9,27 +9,18 @@
 	export let session: Session | null;
 	export let supabase: SupabaseClient;
 
-	const navigationItems = [
-		{
-			title: 'Groups',
-			link: '/groups'
-		},
-		{
-			title: 'About Us',
-			link: '/about'
-		}
-	];
+	const navigationItems: {link: string, title: string}[] = [];
 </script>
 
-<nav class="p-4 container flex items-center gap-4 justify-between">
+<nav class="py-14 px-4 container flex items-center gap-4 justify-between transition-all">
 	<Button
-		class="transition left-0 bg-primary text-white absolute p-3 m-3 -translate-y-16 focus:translate-y-0"
+		class="transition left-0 bg-primary text-white absolute p-3 m-3 -translate-y-24 focus:-translate-y-12"
 		href="#main-content"
 	>
 		Skip Navigation
 	</Button>
 	<div class="flex-1 flex items-center gap-4">
-		<Button variant="link" href="/" class="p-0"><Wordmark /></Button>
+		<Button variant="link" href="/"><Logomark /></Button>
 		<ul class="hidden sm:flex">
 			{#each [...navigationItems.values()] as value}
 				<li>

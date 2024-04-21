@@ -92,9 +92,9 @@
 	];
 
 	let open = false;
-	let city = '';
+	let city = 'London';
 
-	$: selectedValue = city.trim() !== '' ? city : 'City';
+	$: selectedValue = city.trim() !== '' && city;
 
 	// We want to refocus the trigger button when the user selects
 	// an item from the list so users can continue navigating the
@@ -111,18 +111,17 @@
 	<Popover.Trigger asChild let:builder>
 		<Button
 			builders={[builder]}
-			variant="secondary"
+			variant="ghost"
 			role="combobox"
 			aria-expanded={open}
-			class={`w-[300px] sm:w-[200px] pl-8 justify-between border border-input bg-white focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-white text-zinc-500 cursor-text ${selectedValue !== 'City' && 'text-zinc-900'}`}
+			class="pl-0 justify-start underline decoration-primary text-3xl font-semibold focus-visible:ring-ring focus-visible:ring-offset-2 hover:bg-white text-left cursor-pointer"
 		>
 			{selectedValue}
-			<ChevronsUpDown class="ml-2 h-4 w-4 shrink-0" />
 		</Button>
 	</Popover.Trigger>
 	<Popover.Content class="w-[300px] sm:w-[200px] p-0">
 		<Command.Root>
-			<Command.Input placeholder="Search city..." class="h-9  focus-visible:ring-0 border-none" />
+			<Command.Input placeholder="Search city..." class="h-9 focus-visible:ring-0 border-none" />
 			<Command.Empty>No city found.</Command.Empty>
 			<ScrollArea class="h-72">
 				{#each regions as region}

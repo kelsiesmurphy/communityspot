@@ -3,14 +3,6 @@ import type { PageLoad } from './$types';
 export const load: PageLoad = async ({ parent, params }) => {
 	const { supabase } = await parent();
 
-	// const { data: group } = await supabase
-	// 	.from('groups')
-	// 	.select(`*, group_members!inner(id, user_id, group_id)`)
-	// 	.eq('slug', params.slug)
-	// 	.eq("group_members.id", group.id)
-	// 	.eq('isDraft', false)
-	// 	.maybeSingle();
-
 	const { data: group } = await supabase
 		.from('groups')
 		.select('*')
@@ -22,8 +14,20 @@ export const load: PageLoad = async ({ parent, params }) => {
 		.select(`*, users!inner(*)`)
 		.eq('group_id', group.id)
 
+	const { data: groupSocials } = await supabase
+		.from('group_socials')
+		.select(`*, social_links!inner(*)`)
+		.eq('group_id', group.id)
+
+	const { data: events } = await supabase
+		.from('events')
+		.select('*')
+
+
 	return {
 		group,
-		groupMembers
+		groupMembers,
+		groupSocials,
+		events
 	};
 };

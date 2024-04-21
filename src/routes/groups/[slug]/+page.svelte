@@ -1,54 +1,20 @@
 <script lang="ts">
-    import { Button } from '$lib/components/ui/button';
-    import { toast } from 'svelte-sonner';
-    import { writable, get } from 'svelte/store';
     import type { PageData } from './$types';
-	import GroupMembers from './GroupMembers.svelte';
+	import LeftSide from './LeftSide.svelte';
+	import RightSide from './RightSide.svelte';
 
     export let data: PageData;
-    let { group, session, supabase } = data;
-
-    const isGroupMember = writable(false);
-
-    const checkUserGroupMember = async () => {
-        if (session?.user) {
-            const { data: group_members, error } = await supabase
-                .from('group_members')
-                .select('user_id')
-                .eq('group_id', group.id)
-                .eq('user_id', session.user.id);
-
-            if (error) {
-                console.error('Error:', error.message);
-                return;
-            }
-
-            isGroupMember.set(group_members && group_members.length > 0);
-        }
-    };
-
-    checkUserGroupMember();
-
-    $: {
-        checkUserGroupMember();
-    }
-
-    const handleJoinGroup = async () => {
-        const { data, error } = await supabase
-            .from('group_members')
-            .insert([{ group_id: group.id, user_id: session?.user.id }])
-            .select();
-        if (error) {
-            console.log('Error: ' + error);
-        }
-        toast.success(`You are signed up to ${group.name}!`);
-        // After successfully joining, update the store
-        isGroupMember.set(true);
-    }
 </script>
 
-<h1>{group.name}</h1>
-<p>{group.description}</p>
-<Button on:click={handleJoinGroup} disabled={$isGroupMember}>Join Group</Button>
 
-<GroupMembers {data}/>
+<section class="container py-12 flex-1 flex flex-col gap-6 lg:flex-row lg:relative">
+    <div class="lg:max-w-lg">
+        <div class="lg:sticky top-12">
+            <a href="/" class="text-muted-foreground hover:underline">{'<-'} See more communities</a>
+            <LeftSide {data} />
+        </div>
+    </div>
+    <div class="flex-none lg:flex-1 lg:overflow-auto h-[2000px]">
+        <RightSide {data}/>
+    </div>
+</section>
