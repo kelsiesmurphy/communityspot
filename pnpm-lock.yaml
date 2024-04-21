@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@internationalized/date':
+    specifier: ^3.5.2
+    version: 3.5.2
   '@stripe/stripe-js':
     specifier: ^3.0.7
     version: 3.0.7

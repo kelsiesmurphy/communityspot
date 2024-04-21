@@ -47,6 +47,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@internationalized/date": "^3.5.2",
 		"@stripe/stripe-js": "^3.0.7",
 		"@supabase/ssr": "^0.1.0",
 		"@supabase/supabase-js": "^2.39.7",

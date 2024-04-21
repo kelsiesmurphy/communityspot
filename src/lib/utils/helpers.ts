@@ -11,7 +11,13 @@ export const getURL = () => {
 	return url;
 };
 
-export const postData = async ({ url, data }: { url: string; data?: { price: Price } }) => {
+export const postData = async ({
+	url,
+	data
+}: {
+	url: string;
+	data?: { price: Price; group_id: string };
+}) => {
 	console.log('posting,', url, data);
 
 	const res = await fetch(url, {

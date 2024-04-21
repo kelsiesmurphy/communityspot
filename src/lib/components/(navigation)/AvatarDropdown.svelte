@@ -8,18 +8,18 @@
 	export let supabase: SupabaseClient;
 
 	const shortenName = (name: string): string | null => {
-		const nameRegex = /^(?<firstName>\w+)\s+(?<lastName>\w+)$/;
-		const match = name.match(nameRegex);
+    const nameRegex = /^(?<firstName>\w+)/;
+    const match = name.match(nameRegex);
 
-		if (match) {
-			const firstName = match.groups?.firstName;
-			const lastName = match.groups?.lastName;
-			if (firstName && lastName) {
-				return `${firstName[0]}${lastName[0]}`;
-			}
-		}
-		return null;
-	};
+    if (match) {
+        const firstName = match.groups?.firstName;
+        if (firstName) {
+            return firstName[0];
+        }
+    }
+    return null;
+};
+
 
 	const handleSignOut = async () => {
 		await supabase.auth.signOut();
@@ -47,8 +47,7 @@
 		</DropdownMenu.Label>
 		<DropdownMenu.Separator />
 		<DropdownMenu.Group>
-			<DropdownMenu.Item href="/dashboard">My Events</DropdownMenu.Item>
-			<DropdownMenu.Item href="/dashboard/groups">My Groups</DropdownMenu.Item>
+			<DropdownMenu.Item href="/dashboard">My Groups</DropdownMenu.Item>
 			<DropdownMenu.Item href="/dashboard/profile">Profile</DropdownMenu.Item>
 			<DropdownMenu.Item href="/dashboard/settings">Settings</DropdownMenu.Item>
 			<DropdownMenu.Item href="/dashboard/support">Support</DropdownMenu.Item>
