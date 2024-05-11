@@ -16,7 +16,7 @@
 >
 <Card.Root class="flex-1 h-full flex flex-col gap-2 text-left shadow-lg hover:shadow-2xl hover:-translate-y-1 duration-300 transition-all">
 		<Card.Header class="flex items-center">
-			<img src={group.image && group.image} alt={`Cover image for ${group.name}`} class={$mode === "dark" ? "invert": ""}/>
+			<img src={group?.image} alt={`Cover image for ${group.name}`} class={$mode === "dark" ? "invert": ""}/>
 		</Card.Header>
 		<Card.Content class="flex-1 space-y-2">
 			<Card.Title>{group.name}</Card.Title>

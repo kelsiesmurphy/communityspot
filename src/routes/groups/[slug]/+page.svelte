@@ -7,7 +7,7 @@
 </script>
 
 
-<section class="container py-12 flex-1 flex flex-col gap-6 lg:flex-row lg:relative">
+<section class="container py-12 flex-1 flex flex-col gap-12 lg:flex-row lg:relative">
     <div class="lg:max-w-lg">
         <div class="lg:sticky top-12">
             <a href="/" class="text-muted-foreground hover:underline">{'<-'} See more communities</a>

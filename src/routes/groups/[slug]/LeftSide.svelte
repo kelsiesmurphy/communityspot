@@ -1,7 +1,8 @@
 <script lang="ts">
     import { Button } from '$lib/components/ui/button';
     import { toast } from 'svelte-sonner';
-    import { writable, get } from 'svelte/store';
+    import { writable } from 'svelte/store';
+    import { mode } from 'mode-watcher';
 	import type { PageData } from '../$types';
 
     export let data: PageData;
@@ -49,7 +50,10 @@
 </script>
 
 <div class="space-y-6 lg:pt-14">
-    <img class="rounded-full border-2 w-36 aspect-square" src="https://static.vecteezy.com/system/resources/thumbnails/007/636/859/small_2x/community-logo-design-free-vector.jpg" alt="group profile"/>
+    <div class="bg-red-500 p-4">
+        <img src={group?.image} alt={`Cover image for ${group.name}`} class={$mode === "dark" ? "invert": ""}/>
+        <img class="rounded-full border-2 w-36 aspect-square" src="https://static.vecteezy.com/system/resources/thumbnails/007/636/859/small_2x/community-logo-design-free-vector.jpg" alt="group profile"/>
+    </div>
     <h1 class="text-2xl font-semibold">{group.name}</h1>
     <p class="text-secondary-foreground">{group.description}</p>
     <Button on:click={handleJoinGroup} disabled={$isGroupMember} class="w-full sm:w-fit">Join Group</Button>
