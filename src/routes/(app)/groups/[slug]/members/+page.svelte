@@ -14,7 +14,14 @@
 	
 	// export let groupMembers;
 	const groupMembers = generateRandomArray()
+
+	export let data;
+    $: ({ group } = data);
 </script>
+
+<svelte:head>
+	<title>{group.name} Members | Community Spot</title>
+</svelte:head>
 
 <h2 class="text-xl font-medium">Group Members</h2>
 

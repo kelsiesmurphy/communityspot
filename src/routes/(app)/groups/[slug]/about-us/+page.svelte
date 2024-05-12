@@ -2,9 +2,13 @@
 	import SocialCard from "./SocialCard.svelte";
 
     export let data;
-    $: ({ groupSocials } = data);
+    $: ({ groupSocials, group } = data);
 
 </script>
+
+<svelte:head>
+	<title>About {group.name} | Community Spot</title>
+</svelte:head>
 
 <div class="space-y-4">
     <h2 class="text-xl font-medium">Say hello 👋</h2>
