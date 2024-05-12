@@ -1,7 +1,9 @@
 <script lang="ts">
 	import SocialCard from "./SocialCard.svelte";
 
-    export let groupSocials
+    export let data;
+    $: ({ groupSocials } = data);
+
 </script>
 
 <div class="space-y-4">

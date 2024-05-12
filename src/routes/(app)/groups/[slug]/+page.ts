@@ -9,16 +9,6 @@ export const load: PageLoad = async ({ parent, params }) => {
 		.eq('slug', params.slug)
 		.maybeSingle();
 
-	const { data: groupMembers } = await supabase
-		.from('group_members')
-		.select(`*, users!inner(*)`)
-		.eq('group_id', group.id)
-
-	const { data: groupSocials } = await supabase
-		.from('group_socials')
-		.select(`*, social_links!inner(*)`)
-		.eq('group_id', group.id)
-
 	const { data: events } = await supabase
 		.from('events')
 		.select('*')
@@ -26,8 +16,6 @@ export const load: PageLoad = async ({ parent, params }) => {
 
 	return {
 		group,
-		groupMembers,
-		groupSocials,
 		events
 	};
 };

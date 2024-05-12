@@ -35,7 +35,7 @@
 	];
 </script>
 
-<footer class="container space-y-6 p-4 py-12">
+<footer class="container space-y-6 p-4 pt-24 pb-12">
 	<div class="flex flex-col text-zinc-600 gap-6 items-center">
 		<Button variant="link" href="/"><Logomark /></Button>
 		<ul class="flex justify-center flex-wrap">

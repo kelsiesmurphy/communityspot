@@ -1,7 +1,7 @@
 <script lang="ts">
 	import EventCard from "$lib/components/EventCard.svelte";
 
-    export let data
+    export let data;
     $: ({ events, session } = data);
 </script>
 
