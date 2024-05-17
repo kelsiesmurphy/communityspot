@@ -39,10 +39,10 @@
 </script>
 
 <Dialog.Root>
-	<Dialog.Trigger class={buttonVariants({ variant: 'default' })}>Register</Dialog.Trigger>
+	<Dialog.Trigger class={buttonVariants({ variant: 'default' })}>Attend</Dialog.Trigger>
 	<Dialog.Content class="sm:max-w-[425px]">
 		<Dialog.Header>
-			<Dialog.Title>Register for <span class="italic">{event.title}</span></Dialog.Title>
+			<Dialog.Title>Attend <span class="italic">{event.title}</span></Dialog.Title>
 			<Dialog.Description>
 				Fill out this form to help the organisers prepare accordingly.
 			</Dialog.Description>

@@ -9,9 +9,6 @@
 
 	let className: string | undefined | null = undefined;
 	
-
-	console.log($page.route.id)
-
 	const categories = [
 		{
 			name: "Events",

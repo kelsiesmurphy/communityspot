@@ -18,11 +18,7 @@
     $: ({ group } = data);
 </script>
 
-<svelte:head>
-	<title>{group.name} Members | Community Spot</title>
-</svelte:head>
-
-<h2 class="text-xl font-medium">Group Members</h2>
+<h2 class="text-xl font-medium">Attendees</h2>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-12 gap-y-6">
 	{#each groupMembers as member}

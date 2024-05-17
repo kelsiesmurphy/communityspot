@@ -9,7 +9,14 @@ export const load: PageLoad = async ({ parent, params }) => {
 		.eq('id', params.slug)
 		.maybeSingle();
 
+	const { data: group } = await supabase
+		.from('groups')
+		.select('*')
+		.eq('id', event.group_id)
+		.maybeSingle();
+
 	return {
-		event
+		event,
+		group
 	};
 };

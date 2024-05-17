@@ -1,5 +1,4 @@
 <script lang="ts">
-    import { page } from '$app/stores';
 	import LucideIcon from '../GenericIcon.svelte';
 
     export let category
