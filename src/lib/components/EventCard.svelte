@@ -16,7 +16,7 @@
 	on:click={() => goto(session ? `/events/${event.id}` : '/signin')}
 	class="flex-1 rounded-lg ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
 >
-	<Card.Root class="flex gap-2 items-center">
+	<Card.Root class="flex gap-2 justify-between items-center">
 		<div class="flex flex-wrap">
 			<div class="p-4 flex-1 md:max-w-40 max-h-40 xs:max-h-full min-w-[250px]">
 				<img
