@@ -50,7 +50,8 @@ export const actions: Actions = {
 					title: title,
 					description: description,
 					date_start: date_start,
-					date_end: date_end
+					date_end: date_end,
+					venue: "Test Venue"
 				}
 			])
 			.select();
