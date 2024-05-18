@@ -19,6 +19,7 @@
 	import { CalendarIcon } from 'lucide-svelte';
 	import { Calendar } from '$lib/components/ui/calendar';
 	import { toast } from 'svelte-sonner';
+	import AddressInput from './AddressInput.svelte';
 
 	export let data: SuperValidated<Infer<FormSchema>>;
 
@@ -115,6 +116,7 @@
 		<Form.Description>This is the end time of your event.</Form.Description>
 		<Form.FieldErrors />
 	</Form.Field>
+	<AddressInput />
 	<!-- <Form.Field {form} name="image">
 		<Form.Control let:attrs>
 			<Form.Label>Image</Form.Label>

@@ -8,21 +8,37 @@
 	import { crossfade } from 'svelte/transition';
 
 	let className: string | undefined | null = undefined;
-	export let categories;
-	export { className as class };
+	
+	const categories = [
+		{
+			name: "Events",
+			slug: `groups/${$page.params.slug}`,
+			route_id: "/(app)/groups/[slug]"
+		},
+		{
+			name: "Members",
+			slug: `groups/${$page.params.slug}/members`,
+			route_id: "/(app)/groups/[slug]/members"
+		},
+		{
+			name: "About us",
+			slug: `groups/${$page.params.slug}/about-us`,
+			route_id: "/(app)/groups/[slug]/about-us"
+		},
+	]
 
-	const categoriesSorted = categories.sort((a, b) => (a.name === 'Miscellaneous' ? 1 : b.name === 'Miscellaneous' ? -1 : 0));
+	export { className as class };
 
 	const [send, receive] = crossfade({
 		duration: 250,
 		easing: cubicInOut
-	}); 
+	});
 </script>
 	
 <ScrollArea type="scroll" orientation="horizontal" class="scroll-smooth overflow-x-auto">
-	<div class={cn('flex gap-8 p-4 pr-16', className)}>
-		{#each categoriesSorted as category (category.name)}
-			{@const isActive = ($page.params.slug === category.slug) || (category.name === "All Categories" && $page.params.slug === undefined)}
+	<div class={cn('flex gap-8 p-4 pr-16 justify-center', className)}>
+		{#each categories as category (category.name)}
+			{@const isActive = $page.route.id === category.route_id}
 			<CategoryTab {category} {isActive} {send} {receive} />
 		{/each}
 	</div>
