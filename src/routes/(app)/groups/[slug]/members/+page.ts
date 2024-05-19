@@ -14,7 +14,6 @@ export const load: PageLoad = async ({ parent, params }) => {
 		.select(`*, users!inner(*)`)
 		.eq('group_id', group.id)
 
-
 	return {
 		group,
 		groupMembers

@@ -1,8 +1,8 @@
 <script lang="ts">
-	import GroupCard from '../../../lib/components/GroupCard.svelte';
+	import GroupCard from './(components)/GroupCard.svelte';
 	import type { PageData } from './$types';
-	import Hero from '$lib/components/(index)/Hero.svelte';
-	import ScrollCategories from '$lib/components/(index)/ScrollCategories.svelte';
+	import Hero from './(components)/Hero.svelte';
+	import ScrollCategories from './(components)/ScrollCategories.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Plus, FolderX } from "lucide-svelte"
 

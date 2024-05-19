@@ -1,5 +1,5 @@
 <script lang="ts">
-	import LucideIcon from '../GenericIcon.svelte';
+	import LucideIcon from '$lib/components/GenericIcon.svelte';
 
     export let category
     export let isActive
