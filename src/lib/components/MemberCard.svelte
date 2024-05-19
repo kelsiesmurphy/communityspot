@@ -1,23 +1,9 @@
 <script lang="ts">
 	import * as Avatar from "$lib/components/ui/avatar";
 	import * as Card from "$lib/components/ui/card/index.js";
+	import { getJoinDate } from "$lib/utils/helpers";
 
 	export let member
-
-    const getJoinDate = (): string => {
-        const timestamp = member.join_date;
-  
-        const date = new Date(timestamp);
-        
-        const monthNames = [
-            "January", "February", "March", "April", "May", "June",
-            "July", "August", "September", "October", "November", "December"
-        ];
-        const month = monthNames[date.getUTCMonth()];
-        const year = date.getUTCFullYear();
-        
-        return `${month} ${year}`;
-    }
 </script>
 
 
@@ -31,6 +17,6 @@
     </Avatar.Root>
     <div>
         <p>{member.users.full_name}</p>
-        <p class="text-sm text-muted-foreground">Member since {getJoinDate()}</p>
+        <p class="text-sm text-muted-foreground">Member since {getJoinDate(member.join_date)}</p>
     </div>
 </Card.Root>

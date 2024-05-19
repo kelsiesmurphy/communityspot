@@ -11,6 +11,19 @@ export const getURL = () => {
 	return url;
 };
 
+export const getJoinDate = (timestamp): string => {
+	const date = new Date(timestamp);
+	
+	const monthNames = [
+		"January", "February", "March", "April", "May", "June",
+		"July", "August", "September", "October", "November", "December"
+	];
+	const month = monthNames[date.getUTCMonth()];
+	const year = date.getUTCFullYear();
+	
+	return `${month} ${year}`;
+}
+
 export const postData = async ({
 	url,
 	data
