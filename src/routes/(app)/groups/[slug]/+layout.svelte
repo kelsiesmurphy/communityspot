@@ -1,7 +1,7 @@
 <script lang="ts">
     import type { PageData } from './$types';
 	import Hero from './Hero.svelte';
-	import ScrollCategories from './ScrollCategories.svelte';
+	import ScrollCategories from './SectionTabs.svelte';
 
     export let data: PageData;
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
-	import CategoryTab from './CategoryTab.svelte';
+	import SectionTab from './SectionTab.svelte';
 
 	import { cn } from '$lib/utils';
 	import { page } from '$app/stores';
@@ -9,7 +9,7 @@
 
 	let className: string | undefined | null = undefined;
 	
-	const categories = [
+	const sections = [
 		{
 			name: "Events",
 			slug: `groups/${$page.params.slug}`,
@@ -37,9 +37,9 @@
 	
 <ScrollArea type="scroll" orientation="horizontal" class="scroll-smooth overflow-x-auto">
 	<div class={cn('flex gap-8 p-4 pr-16 justify-center', className)}>
-		{#each categories as category (category.name)}
-			{@const isActive = $page.route.id === category.route_id}
-			<CategoryTab {category} {isActive} {send} {receive} />
+		{#each sections as section (section.name)}
+			{@const isActive = $page.route.id === section.route_id}
+			<SectionTab {section} {isActive} {send} {receive} />
 		{/each}
 	</div>
 	<div class="gradient-right"></div>

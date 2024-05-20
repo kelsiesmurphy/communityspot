@@ -12,10 +12,22 @@ export const load: LayoutLoad = async ({ parent, params }) => {
 	const { data: events } = await supabase
 		.from('events')
 		.select('*')
+		.eq('group_id', group.id)
 
+	const { data: groupMembers } = await supabase
+		.from('group_members')
+		.select(`*, users!inner(*)`)
+		.eq('group_id', group.id)
+
+	const { data: groupSocials } = await supabase
+		.from('group_socials')
+		.select(`*, social_links!inner(*)`)
+		.eq('group_id', group.id)
 
 	return {
 		group,
-		events
+		events, 
+		groupMembers,
+		groupSocials
 	};
 };

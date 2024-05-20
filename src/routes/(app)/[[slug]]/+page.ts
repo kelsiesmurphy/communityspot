@@ -6,6 +6,10 @@ export const load = async ({ parent, params }) => {
 		.select(
 			`*, group_categories!inner(
 				id, category_slug, group_id
+			), group_members!inner(
+				id, user_id, group_id, users!inner(
+					id, full_name, avatar_url
+				)
 			)`
 		)
 		.eq('isDraft', false);

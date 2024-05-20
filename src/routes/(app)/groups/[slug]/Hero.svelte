@@ -4,9 +4,10 @@
     import { writable } from 'svelte/store';
     import { mode } from 'mode-watcher';
 	import type { PageData } from './$types';
+	import { getJoinDate } from '$lib/utils/helpers';
 
     export let data: PageData;
-    $: ({ group, session, supabase } = data);
+    $: ({ group, session, supabase, events, groupMembers } = data);
 
     const isGroupMember = writable(false);
 
@@ -56,9 +57,8 @@
         <h1 class="text-3xl md:text-5xl font-semibold">{group.name}</h1>
         <p class="text-lg md:text-2xl text-secondary-foreground">{group.description}</p>
         <div class="flex flex-wrap gap-x-8 gap-y-4 text-md text-muted-foreground">
-            <p>100 members</p>
-            <p>32 Events</p>
-            <p>Running since February 2024</p>
+            <p>{groupMembers?.length} members</p>
+            <p>{events?.length} Events</p>
         </div>
         <Button on:click={handleJoinGroup} size="lg" disabled={$isGroupMember} class="w-full sm:w-fit">Join Group</Button>
     </div>

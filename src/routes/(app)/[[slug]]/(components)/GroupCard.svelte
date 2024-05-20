@@ -3,11 +3,10 @@
 
 	import type { Database } from '$lib/supabase/types_db';
 	import { goto } from '$app/navigation';
-	import AvatarGroup from './AvatarGroup.svelte';
+	import AvatarGroup from '../../../../lib/components/AvatarGroup.svelte';
 	import { mode } from 'mode-watcher';
-	type Group = Database['public']['Tables']['groups']['Row'];
 
-	export let group: Group;
+	export let group;
 </script>
 
 <button
@@ -23,7 +22,7 @@
 			<Card.Description class="line-clamp-2">{group.description}</Card.Description>
 		</Card.Content>
 		<Card.Footer>
-			<AvatarGroup />
+			<AvatarGroup group_members={group.group_members} />
 		</Card.Footer>
 	</Card.Root>
 </button>
