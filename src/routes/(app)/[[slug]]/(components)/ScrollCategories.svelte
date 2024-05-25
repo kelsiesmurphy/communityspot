@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { ScrollArea } from '$lib/components/ui/scroll-area/index.js';
 	import CategoryTab from './CategoryTab.svelte';
+	import * as Carousel from "$lib/components/ui/carousel/index.js";
+	import { type CarouselAPI } from "$lib/components/ui/carousel/context.js";
 
 	import { cn } from '$lib/utils';
 	import { page } from '$app/stores';
@@ -17,14 +19,41 @@
 		duration: 250,
 		easing: cubicInOut
 	}); 
-</script>
+
+	let api: CarouselAPI;
+	let count = 0;
+	let current = 0;
 	
-<ScrollArea type="scroll" orientation="horizontal" class="scroll-smooth overflow-x-auto">
-	<div class={cn('flex gap-8 p-4 pr-16', className)}>
+	$: if (api) {
+		count = api.scrollSnapList().length;
+		current = api.selectedScrollSnap() + 1;
+		api.on("select", () => {
+		current = api.selectedScrollSnap() + 1;
+		});
+	}
+</script>
+
+<Carousel.Root
+	opts={{
+		skipSnaps: true,
+	}}
+	bind:api
+	class={`cursor-grab ${current > 1 && "ml-12"} ${current < count && "mr-12"}`}
+>
+	<Carousel.Content class={cn('flex gap-8 p-4', className)}>
 		{#each categoriesSorted as category (category.name)}
-			{@const isActive = ($page.params.slug === category.slug) || (category.name === "All Categories" && $page.params.slug === undefined)}
-			<CategoryTab {category} {isActive} {send} {receive} />
+			<Carousel.Item class="basis-1/8">
+				{@const isActive = ($page.params.slug === category.slug) || (category.name === "All Categories" && $page.params.slug === undefined)}
+				<CategoryTab {category} {isActive} {send} {receive} />
+			</Carousel.Item>	
 		{/each}
+	</Carousel.Content>
+	<div class="">
+		{#if current > 1}
+			<Carousel.Previous />
+		{/if}
+		{#if current < count}
+			<Carousel.Next />
+		{/if}
 	</div>
-	<div class="gradient-right"></div>
-</ScrollArea>
+</Carousel.Root>

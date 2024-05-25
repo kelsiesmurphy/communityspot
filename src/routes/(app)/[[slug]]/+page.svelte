@@ -2,9 +2,9 @@
 	import GroupCard from './(components)/GroupCard.svelte';
 	import type { PageData } from './$types';
 	import Hero from './(components)/Hero.svelte';
-	import ScrollCategories from './(components)/ScrollCategories.svelte';
 	import Button from '$lib/components/ui/button/button.svelte';
 	import { Plus, FolderX } from "lucide-svelte"
+	import ScrollCategories from './(components)/ScrollCategories.svelte';
 
 	export let data: PageData;
 	let { session, groups, categories } = data;
